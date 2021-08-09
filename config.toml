@@ -13,7 +13,7 @@ paginate = 5000 #frontpage pagination
   header_image = "images/main_go_wideandtall_darklayer.jpeg"
   title = "DevOps Engineering"
   slogan = "Why are you still not using Kubernetes ?"
-  SEOTitle = "IDerr Blog"
+  SEOTitle = "Blog"
   keyword = "IDerr, Pi, Docker, Kubernetes, Go, Golang, Microservice, Ansible, Python, Devops, Rancher, Longhorn, Hacker"
  
   # Sidebar settings
