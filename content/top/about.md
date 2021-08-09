@@ -8,7 +8,7 @@ I currently hold a Master degree in Computer Science and Technology from ENSIIE 
 
 Currently, I am working at Exaion, a new EDF Group subsidiary specialized in Blockchain, Cloud computing and HPC, at the same time, I try to create my own products on my own.
 
-I am happy with my current job, but also willing to take new challenges if the opportunity matches my career path and my vision.
+I am happy with my current job, but also willing to take new extra challenges on the side if the opportunity matches my career path and my vision.
 
 While I am not working, I enjoy watching TV, hacking my own car, traveling, writing blogs and learning languages.
 
