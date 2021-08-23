@@ -1,6 +1,6 @@
 baseurl = "https://iderr.github.io"
 title = "IDerr"
-theme = "hugo-theme-cleanwhite-rsy"
+theme = "hugo-theme-cleanwhite"
 languageCode = "en-us"
 paginate = 5000 #frontpage pagination
 
