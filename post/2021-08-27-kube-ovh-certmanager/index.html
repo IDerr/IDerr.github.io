@@ -95,16 +95,22 @@ post-container">
 </header>
 <nav id=TableOfContents>
 <ul>
+<li><a href=#introduction>Introduction</a></li>
+<li><a href=#installation>Installation</a>
+<ul>
 <li><a href=#cert-manager-installation>Cert-manager installation</a></li>
 <li><a href=#ovh-webhook-installation>OVH Webhook installation</a></li>
 </ul>
+</li>
+<li><a href=#conclusion>Conclusion</a></li>
+</ul>
 </nav>
-<h1 id=introduction>Introduction</h1>
+<h2 id=introduction>Introduction</h2>
 <p>First article of this new blog !</p>
 <p>Today we will discuss how to configure automatic Let’s-Encrypt certificate renewal with a domain hosted in OVH.</p>
 <p>I have not found a clear tutorial on how to setup a cluster wide OVH cert-manager provider so there it is.</p>
-<h1 id=installation>Installation</h1>
-<h2 id=cert-manager-installation>Cert-manager installation</h2>
+<h2 id=installation>Installation</h2>
+<h3 id=cert-manager-installation>Cert-manager installation</h3>
 <p>Quick reminder, installing cert-manager is pretty straight forward with Helm
 Don&rsquo;t forget to replace the version with the latest one : <a href=https://github.com/jetstack/cert-manager/releases>https://github.com/jetstack/cert-manager/releases</a></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl create namespace cert-manager
@@ -113,7 +119,7 @@ helm repo update
 helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.5.3 --set installCRDs<span style=color:#f92672>=</span>true
 
 </code></pre></div><p>After that, you should have a running cert-manager</p>
-<h2 id=ovh-webhook-installation>OVH Webhook installation</h2>
+<h3 id=ovh-webhook-installation>OVH Webhook installation</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git clone https://github.com/baarde/cert-manager-webhook-ovh.git
 cd cert-manager-webhook-ovh
 helm install cert-manager-webhook-ovh ./deploy/cert-manager-webhook-ovh --set groupName<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;&lt;GROUP_NAME&gt;&#39;</span>
@@ -195,7 +201,7 @@ helm install cert-manager-webhook-ovh ./deploy/cert-manager-webhook-ovh --set gr
   <span style=color:#f92672>secretName</span>: <span style=color:#ae81ff>test-mydomain-com-tls</span>
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>NAME                READY   SECRET                  AGE
 example-certificate True    test-mydomain-com-tls   3s
-</code></pre></div><h1 id=conclusion>Conclusion</h1>
+</code></pre></div><h2 id=conclusion>Conclusion</h2>
 <p>Congrats, and see you next time for another article !</p>
 <hr>
 <ul class=pager>
