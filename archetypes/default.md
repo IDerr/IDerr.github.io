@@ -1,6 +1,10 @@
 ---
 title: "{{ replace .Name "-" " " | title }}"
+subtitle: ""
 date: {{ .Date }}
-draft: true
+author: "IDerr"
+image: ""
+published: true
+tags: []
 ---
 
