@@ -9,6 +9,8 @@ tags:
     - Kubernetes
     - Cert-Manager
     - OVH
+categories: 
+  - Tech
 ---
 # Introduction
 First article of this new blog !

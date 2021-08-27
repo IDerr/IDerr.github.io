@@ -6,5 +6,7 @@ author: "IDerr"
 image: ""
 published: true
 tags: []
+categories: 
+  - Tech
 ---
 
