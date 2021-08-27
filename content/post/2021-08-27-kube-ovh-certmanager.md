@@ -12,6 +12,7 @@ tags:
 categories: 
   - Tech
 ---
+
 # Introduction
 First article of this new blog !
 
@@ -19,7 +20,8 @@ Today we will discuss how to configure automatic Let’s-Encrypt certificate ren
 
 I have not found a clear tutorial on how to setup a cluster wide OVH cert-manager provider so there it is.
 
-# Cert-manager installation
+# Installation
+## Cert-manager installation
 
 Quick reminder, installing cert-manager is pretty straight forward with Helm
 Don't forget to replace the version with the latest one : https://github.com/jetstack/cert-manager/releases
@@ -32,7 +34,7 @@ helm install cert-manager jetstack/cert-manager --namespace cert-manager --creat
 ```
 After that, you should have a running cert-manager
 
-# OVH Webhook installation
+## OVH Webhook installation
 
 ```bash
 git clone https://github.com/baarde/cert-manager-webhook-ovh.git
@@ -128,4 +130,7 @@ spec:
 NAME                READY   SECRET                  AGE
 example-certificate True    test-mydomain-com-tls   3s
 ```
+
+# Conclusion
+
 Congrats, and see you next time for another article ! 
