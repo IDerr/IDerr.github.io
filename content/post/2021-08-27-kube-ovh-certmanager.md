@@ -51,7 +51,7 @@ After that, we need to create our api keys in the OVH API to connect our webhook
   - DELETE /domain/zone/*
 - If you prefer to give access only to one domain replace the "*" by your domain name
 
-We'll store the application secret freshly generated in a secret.
+We'll store the freshly generated application secret in Kubernetes.
 
 The secret needs to be in the same namespace as the cert-manager controller pod if you want to create a ClusterIssuer, in our case, 'cert-manager'
 
