@@ -10,7 +10,7 @@ paginate = 5000 #frontpage pagination
       unsafe = true
 
 [params]
-  header_image = "images/main_go_wideandtall_darklayer.jpeg"
+  header_image = "images/background.jpg"
   title = "DevOps Engineering"
   slogan = "Why are you still not using Kubernetes ?"
   SEOTitle = "Blog"
