@@ -1,0 +1,235 @@
+<!doctype html><html lang=en-us>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge">
+<meta name=viewport content="width=device-width,initial-scale=1">
+<meta property="og:site_name" content="IDerr">
+<meta property="og:type" content="article">
+<meta property="og:image" content="https://iderr.github.io/images/main_go_wideandtall_darklayer.jpeg">
+<meta property="twitter:image" content="https://iderr.github.io/images/main_go_wideandtall_darklayer.jpeg">
+<meta name=title content="Use OVH as a DNS-01 provider for cert-manager">
+<meta property="og:title" content="Use OVH as a DNS-01 provider for cert-manager">
+<meta property="twitter:title" content="Use OVH as a DNS-01 provider for cert-manager">
+<meta name=description content>
+<meta property="og:description" content>
+<meta property="twitter:description" content>
+<meta property="twitter:card" content="summary">
+<meta name=keyword content="IDerr, Pi, Docker, Kubernetes, Go, Golang, Microservice, Ansible, Python, Devops, Rancher, Longhorn, Hacker">
+<link rel="shortcut icon" href=/img/favicon.ico>
+<title>Use OVH as a DNS-01 provider for cert-manager-Blog</title>
+<link rel=canonical href=/post/kube-ovh-certmanager/>
+<link rel=stylesheet href=/css/iDisqus.min.css>
+<link rel=stylesheet href=/css/bootstrap.min.css>
+<link rel=stylesheet href=/css/hux-blog.min.css>
+<link rel=stylesheet href=/css/zanshang.css>
+<link href=//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css rel=stylesheet type=text/css>
+<script src=/js/jquery.min.js></script>
+<script src=/js/bootstrap.min.js></script>
+<script src=/js/hux-blog.min.js></script>
+</head>
+<nav class="navbar navbar-default navbar-custom navbar-fixed-top">
+<div class=container-fluid>
+<div class="navbar-header page-scroll">
+<button type=button class=navbar-toggle>
+<span class=sr-only>Toggle navigation</span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+<span class=icon-bar></span>
+</button>
+<a class=navbar-brand href=/>IDerr</a>
+</div>
+<div id=huxblog_navbar>
+<div class=navbar-collapse>
+<ul class="nav navbar-nav navbar-right">
+<li>
+<a href=/>Home</a>
+</li>
+<li><a href=/top/about/>ABOUT</a></li>
+</ul>
+</div>
+</div>
+</div>
+</nav>
+<script>var $body=document.body,$toggle=document.querySelector('.navbar-toggle'),$navbar=document.querySelector('#huxblog_navbar'),$collapse=document.querySelector('.navbar-collapse');$toggle.addEventListener('click',handleMagic);function handleMagic(a){$navbar.className.indexOf('in')>0?($navbar.className=" ",setTimeout(function(){$navbar.className.indexOf('in')<0&&($collapse.style.height="0px")},400)):($collapse.style.height="auto",$navbar.className+=" in")}</script>
+<style type=text/css>header.intro-header{background-image:url(/images/main_go_wideandtall_darklayer.jpeg)}</style>
+<header class=intro-header>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<div class=post-heading>
+<div class=tags>
+</div>
+<h1>Use OVH as a DNS-01 provider for cert-manager</h1>
+<h2 class=subheading></h2>
+<span class=meta>
+Posted by
+IDerr
+on
+Friday, August 27, 2021
+</span>
+</div>
+</div>
+</div>
+</div>
+</header>
+<article>
+<div class=container>
+<div class=row>
+<div class="col-lg-11 col-lg-offset-1
+col-md-10 col-md-offset-1
+post-container">
+<header>
+<h2>TOC</h2>
+</header>
+<nav id=TableOfContents></nav>
+<h1 id=introduction>Introduction</h1>
+<p>First article of this new blog !</p>
+<p>Today we will discuss how to configure automatic Let’s-Encrypt certificate renewal with a domain hosted in OVH.</p>
+<p>I have not found a clear tutorial on how to setup a cluster wide OVH cert-manager provider so there it is.</p>
+<h1 id=cert-manager-installation>Cert-manager installation</h1>
+<p>Quick reminder, installing cert-manager is pretty straight forward with Helm
+Don&rsquo;t forget to replace the version with the latest one : <a href=https://github.com/jetstack/cert-manager/releases>https://github.com/jetstack/cert-manager/releases</a></p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl create namespace cert-manager
+helm repo add jetstack https://charts.jetstack.io
+helm repo update
+helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.5.3 --set installCRDs<span style=color:#f92672>=</span>true
+
+</code></pre></div><p>After that, you should have a running cert-manager</p>
+<h1 id=ovh-webhook-installation>OVH Webhook installation</h1>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git clone https://github.com/baarde/cert-manager-webhook-ovh.git
+cd cert-manager-webhook-ovh
+helm install cert-manager-webhook-ovh ./deploy/cert-manager-webhook-ovh --set groupName<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;&lt;GROUP_NAME&gt;&#39;</span>
+</code></pre></div><p>After that, we need to create our api keys in the OVH API to connect our webhook controller to OVH</p>
+<ul>
+<li>Go to <a href=https://api.ovh.com/createToken/index.cgi>https://api.ovh.com/createToken/index.cgi</a></li>
+<li>Add the followings rights, if you want to give acces to all of your domains
+<ul>
+<li>GET /domain/zone/*</li>
+<li>PUT /domain/zone/*</li>
+<li>POST /domain/zone/*</li>
+<li>DELETE /domain/zone/*</li>
+</ul>
+</li>
+<li>If you prefer to give access only to one domain replace the &ldquo;*&rdquo; by your domain name</li>
+</ul>
+<p>We&rsquo;ll store the application secret freshly generated in a secret.</p>
+<p>The secret needs to be in the same namespace as the cert-manager controller pod if you want to create a ClusterIssuer, in our case, &lsquo;cert-manager&rsquo;</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl create secret generic ovh-credentials --namespace cert-manager --from-literal<span style=color:#f92672>=</span>applicationSecret<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;&lt;OVHSECRET&gt;&#39;</span>
+</code></pre></div><p>Grant permission to get the secret to the cert-manager-webhook-ovh service account</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>rbac.authorization.k8s.io/v1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>ClusterRole</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>cert-manager-webhook-ovh:secret-reader</span>
+<span style=color:#f92672>rules</span>:
+- <span style=color:#f92672>apiGroups</span>: [<span style=color:#e6db74>&#34;&#34;</span>]
+  <span style=color:#f92672>resources</span>: [<span style=color:#e6db74>&#34;secrets&#34;</span>]
+  <span style=color:#f92672>resourceNames</span>: [<span style=color:#e6db74>&#34;ovh-credentials&#34;</span>]
+  <span style=color:#f92672>verbs</span>: [<span style=color:#e6db74>&#34;get&#34;</span>, <span style=color:#e6db74>&#34;watch&#34;</span>]
+---
+<span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>rbac.authorization.k8s.io/v1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>ClusterRoleBinding</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>cert-manager-webhook-ovh:secret-reader</span>
+<span style=color:#f92672>roleRef</span>:
+  <span style=color:#f92672>apiGroup</span>: <span style=color:#ae81ff>rbac.authorization.k8s.io</span>
+  <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>ClusterRole</span>
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>cert-manager-webhook-ovh:secret-reader</span>
+<span style=color:#f92672>subjects</span>:
+- <span style=color:#f92672>apiGroup</span>: <span style=color:#e6db74>&#34;&#34;</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>default</span>
+  <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>ServiceAccount</span>
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>cert-manager-webhook-ovh</span>
+</code></pre></div><p>And we can finally create our cluster issuer, don&rsquo;t forget to replace the values between &lt;> with your keys/config</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>cert-manager.io/v1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>ClusterIssuer</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>letsencrypt</span>
+  <span style=color:#f92672>namespace</span>: <span style=color:#ae81ff>cert-manager</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>acme</span>:
+    <span style=color:#f92672>server</span>: <span style=color:#ae81ff>https://acme-v02.api.letsencrypt.org/directory</span>
+    <span style=color:#f92672>email</span>: <span style=color:#e6db74>&#39;&lt;EMAIL&gt;&#39;</span>
+    <span style=color:#f92672>privateKeySecretRef</span>:
+      <span style=color:#f92672>name</span>: <span style=color:#ae81ff>letsencrypt-account-key</span>
+    <span style=color:#f92672>solvers</span>:
+    - <span style=color:#f92672>dns01</span>:
+        <span style=color:#f92672>webhook</span>:
+          <span style=color:#f92672>groupName</span>: <span style=color:#e6db74>&#39;&lt;GROUP_NAME&gt;&#39;</span>
+          <span style=color:#f92672>solverName</span>: <span style=color:#ae81ff>ovh</span>
+          <span style=color:#f92672>config</span>:
+            <span style=color:#f92672>endpoint</span>: <span style=color:#ae81ff>ovh-eu</span>
+            <span style=color:#f92672>applicationKey</span>: <span style=color:#e6db74>&#39;&lt;APP_KEY&gt;&#39;</span>
+            <span style=color:#f92672>applicationSecretRef</span>:
+              <span style=color:#f92672>key</span>: <span style=color:#ae81ff>applicationSecret</span>
+              <span style=color:#f92672>name</span>: <span style=color:#ae81ff>ovh-credentials</span>
+            <span style=color:#f92672>consumerKey</span>: <span style=color:#e6db74>&#39;&lt;CONSUMER_KEY&gt;&#39;</span>
+</code></pre></div><p>And voila, you have a fully working ClusterIssuer with OVH, you can test all your work with a new Certificate.</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#f92672>apiVersion</span>: <span style=color:#ae81ff>cert-manager.io/v1</span>
+<span style=color:#f92672>kind</span>: <span style=color:#ae81ff>Certificate</span>
+<span style=color:#f92672>metadata</span>:
+  <span style=color:#f92672>name</span>: <span style=color:#ae81ff>example-certificate</span>
+<span style=color:#f92672>spec</span>:
+  <span style=color:#f92672>dnsNames</span>:
+  - <span style=color:#ae81ff>test.mydomain.com</span>
+  <span style=color:#f92672>issuerRef</span>:
+    <span style=color:#f92672>name</span>: <span style=color:#ae81ff>letsencrypt</span>
+    <span style=color:#f92672>kind</span>: <span style=color:#ae81ff>ClusterIssuer</span>
+  <span style=color:#f92672>secretName</span>: <span style=color:#ae81ff>test-mydomain-com-tls</span>
+</code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>NAME                READY   SECRET                  AGE
+example-certificate True    test-mydomain-com-tls   3s
+</code></pre></div><p>Congrats, and see you next time for another article !</p>
+<hr>
+<ul class=pager>
+</ul>
+<div id=disqus-comment></div>
+</div>
+<div class="col-lg-11 col-lg-offset-1
+col-md-10 col-md-offset-1
+sidebar-container">
+<section>
+<hr class="hidden-sm hidden-xs">
+<h5><a href=/tags/>FEATURED TAGS</a></h5>
+<div class=tags>
+</div>
+</section>
+</div>
+</div>
+</div>
+</article>
+<footer>
+<div class=container>
+<div class=row>
+<div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+<ul class="list-inline text-center">
+<li>
+<a href rel=alternate type=application/rss+xml title=IDerr>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fas fa-rss fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+<li>
+<a target=_blank href=https://github.com/IDerr>
+<span class="fa-stack fa-lg">
+<i class="fas fa-circle fa-stack-2x"></i>
+<i class="fab fa-github fa-stack-1x fa-inverse"></i>
+</span>
+</a>
+</li>
+</ul>
+<p class="copyright text-muted">
+Copyright &copy; IDerr 2021
+<br>
+<a href=https://themes.gohugo.io/hugo-theme-cleanwhite>CleanWhite Hugo Theme</a> by <a href=https://zhaohuabing.com>Huabing</a> |
+<iframe style=margin-left:2px;margin-bottom:-5px frameborder=0 scrolling=0 width=100px height=20px src="https://ghbtns.com/github-btn.html?user=zhaohuabing&repo=hugo-theme-cleanwhite&type=star&count=true"></iframe>
+</p>
+</div>
+</div>
+</div>
+</footer>
+<script>function loadAsync(f,b){var c=document,d='script',a=c.createElement(d),e=c.getElementsByTagName(d)[0];a.src=f,b&&a.addEventListener('load',function(a){b(null,a)},!1),e.parentNode.insertBefore(a,e)}</script>
+<script>$('#tag_cloud').length!==0&&loadAsync("/js/jquery.tagcloud.js",function(){$.fn.tagcloud.defaults={color:{start:'#bbbbee',end:'#0085a1'}},$('#tag_cloud a').tagcloud()})</script>
+<script>loadAsync("https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.js",function(){var a=document.querySelector("nav");a&&FastClick.attach(a)})</script>
+</body>
+</html>
