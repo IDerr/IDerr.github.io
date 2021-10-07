@@ -106,19 +106,19 @@ post-container">
 </ul>
 </nav>
 <h2 id=introduction>Introduction</h2>
-<p>First article of this new blog !</p>
+<p>First article of this new blog!</p>
 <p>Today we will discuss how to configure automatic Let’s-Encrypt certificate renewal with a domain hosted in OVH.</p>
 <p>I have not found a clear tutorial on how to setup a cluster wide OVH cert-manager provider so there it is.</p>
 <h2 id=installation>Installation</h2>
 <h3 id=cert-manager-installation>Cert-manager installation</h3>
-<p>Quick reminder, installing cert-manager is pretty straight forward with Helm
+<p>Quick reminder, installing cert-manager is pretty straightforward with Helm.
 Don&rsquo;t forget to replace the version with the latest one : <a href=https://github.com/jetstack/cert-manager/releases>https://github.com/jetstack/cert-manager/releases</a></p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl create namespace cert-manager
 helm repo add jetstack https://charts.jetstack.io
 helm repo update
 helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.5.3 --set installCRDs<span style=color:#f92672>=</span>true
 
-</code></pre></div><p>After that, you should have a running cert-manager</p>
+</code></pre></div><p>After that, you should have a running cert-manager.</p>
 <h3 id=ovh-webhook-installation>OVH Webhook installation</h3>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>git clone https://github.com/baarde/cert-manager-webhook-ovh.git
 cd cert-manager-webhook-ovh
@@ -136,7 +136,7 @@ helm install cert-manager-webhook-ovh ./deploy/cert-manager-webhook-ovh --set gr
 </li>
 <li>If you prefer to give access only to one domain replace the &ldquo;*&rdquo; by your domain name</li>
 </ul>
-<p>We&rsquo;ll store the freshly generated application secret in Kubernetes.</p>
+<p>We will store the freshly generated application secret in Kubernetes.</p>
 <p>The secret needs to be in the same namespace as the cert-manager controller pod if you want to create a ClusterIssuer, in our case, &lsquo;cert-manager&rsquo;</p>
 <div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>kubectl create secret generic ovh-credentials --namespace cert-manager --from-literal<span style=color:#f92672>=</span>applicationSecret<span style=color:#f92672>=</span><span style=color:#e6db74>&#39;&lt;OVHSECRET&gt;&#39;</span>
 </code></pre></div><p>Grant permission to get the secret to the cert-manager-webhook-ovh service account</p>
@@ -202,7 +202,7 @@ helm install cert-manager-webhook-ovh ./deploy/cert-manager-webhook-ovh --set gr
 </code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>NAME                READY   SECRET                  AGE
 example-certificate True    test-mydomain-com-tls   3s
 </code></pre></div><h2 id=conclusion>Conclusion</h2>
-<p>Congrats, and see you next time for another article !</p>
+<p>Congratulation, and see you next time for another article!</p>
 <hr>
 <ul class=pager>
 </ul>
