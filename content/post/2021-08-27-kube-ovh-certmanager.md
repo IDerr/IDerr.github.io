@@ -14,7 +14,7 @@ categories:
 ---
 
 ## Introduction
-First article of this new blog !
+First article of this new blog!
 
 Today we will discuss how to configure automatic Let’s-Encrypt certificate renewal with a domain hosted in OVH.
 
@@ -23,7 +23,7 @@ I have not found a clear tutorial on how to setup a cluster wide OVH cert-manage
 ## Installation
 ### Cert-manager installation
 
-Quick reminder, installing cert-manager is pretty straight forward with Helm
+Quick reminder, installing cert-manager is pretty straightforward with Helm.
 Don't forget to replace the version with the latest one : https://github.com/jetstack/cert-manager/releases
 ```bash
 kubectl create namespace cert-manager
@@ -32,7 +32,7 @@ helm repo update
 helm install cert-manager jetstack/cert-manager --namespace cert-manager --create-namespace --version v1.5.3 --set installCRDs=true
 
 ```
-After that, you should have a running cert-manager
+After that, you should have a running cert-manager.
 
 ### OVH Webhook installation
 
@@ -51,7 +51,7 @@ After that, we need to create our api keys in the OVH API to connect our webhook
   - DELETE /domain/zone/*
 - If you prefer to give access only to one domain replace the "*" by your domain name
 
-We'll store the freshly generated application secret in Kubernetes.
+We will store the freshly generated application secret in Kubernetes.
 
 The secret needs to be in the same namespace as the cert-manager controller pod if you want to create a ClusterIssuer, in our case, 'cert-manager'
 
@@ -133,4 +133,4 @@ example-certificate True    test-mydomain-com-tls   3s
 
 ## Conclusion
 
-Congrats, and see you next time for another article ! 
+Congratulation, and see you next time for another article! 
