@@ -41,9 +41,9 @@ params:
         emoji: 🍥
         subtitle: DevOps stories
         avatar:
-            enabled: false
+            enabled: true
             local: true
-            src: static/images/Me.png
+            src: images/Me.png
 
     article:
         math: false
