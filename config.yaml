@@ -41,7 +41,7 @@ params:
         emoji: 🍥
         subtitle: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         avatar:
-            enabled: true
+            enabled: false
             local: true
             src: static/images/Me.png
 
