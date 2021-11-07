@@ -1,10 +1,9 @@
 ---
 title: About
-description: Hugo, the world's fastest framework for building websites
-date: '2019-02-28'
+description: Me
+date: 2021-08-27
 aliases:
   - about-us
-  - about-hugo
   - contact
 license: CC BY-NC-ND
 lastmod: '2020-10-09'
@@ -15,20 +14,19 @@ menu:
             icon: user
 ---
 
-Written in Go, Hugo is an open source static site generator available under the [Apache Licence 2.0.](https://github.com/gohugoio/hugo/blob/master/LICENSE) Hugo supports TOML, YAML and JSON data file types, Markdown and HTML content files and uses shortcodes to add rich content. Other notable features are taxonomies, multilingual mode, image processing, custom output formats, HTML/CSS/JS minification and support for Sass SCSS workflows.
+I am **IDerr**, a Freelance DevOps engineer based in Paris.
 
-Hugo makes use of a variety of open source projects including:
+Throughout my career, I have built a number of large-scale systems and operation tools, most of them are still running in production.
 
-* https://github.com/yuin/goldmark
-* https://github.com/alecthomas/chroma
-* https://github.com/muesli/smartcrop
-* https://github.com/spf13/cobra
-* https://github.com/spf13/viper
+I have strong interests in various tech stuff such as Artificial Intelligence, Cryptocurrencies and Smart Home.
 
-Hugo is ideal for blogs, corporate websites, creative portfolios, online magazines, single page applications or even a website with thousands of pages.
+I hold a Master degree in Computer Science and Technology from ENSIIE Engineer school in France.
 
-Hugo is for people who want to hand code their own website without worrying about setting up complicated runtimes, dependencies and databases.
+I am working at Exaion, a new EDF Group subsidiary specialized in Blockchain, Cloud computing and HPC, and at the same time, I try to create my own products.
 
-Websites built with Hugo are extremelly fast, secure and can be deployed anywhere including, AWS, GitHub Pages, Heroku, Netlify and any other hosting provider.
+I am happy with my current job, but also willing to take new extra challenges on the side if the opportunity matches my career path and my vision.
 
-Learn more and contribute on [GitHub](https://github.com/gohugoio).
+During my free time, I enjoy watching TV, hacking my own car, traveling, writing blogs and learning languages.
+
+Feel free to connect via Github (https://github.com/IDerr) or drop me an email.
+
