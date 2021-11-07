@@ -1,4 +1,68 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IDerr</title><link>https://iderr.github.io/</link><description>Recent content on IDerr</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 27 Aug 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://iderr.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>OVH provider for cert-manager DNS-01</title><link>https://iderr.github.io/p/ovh-provider-for-cert-manager-dns-01/</link><pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate><guid>https://iderr.github.io/p/ovh-provider-for-cert-manager-dns-01/</guid><description>&lt;img src="https://cdna.artstation.com/p/assets/images/images/009/211/358/large/bala-vidhya-sagar-1.jpg?1517728575" alt="Featured image of post OVH provider for cert-manager DNS-01" />&lt;h2 id="introduction">Introduction&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IDerr</title><link>https://iderr.github.io/</link><description>Recent content on IDerr</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 07 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://iderr.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Introduction to Tutor</title><link>https://iderr.github.io/p/introduction-to-tutor/</link><pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate><guid>https://iderr.github.io/p/introduction-to-tutor/</guid><description>&lt;img src="https://iderr.github.io/p/introduction-to-tutor/background.png" alt="Featured image of post Introduction to Tutor" />&lt;h1 id="introduction">Introduction&lt;/h1>
+&lt;p>Today, we will discuss how to use Tutor for deploying OpenEdx.
+OpenEdx is a platform used to deploy your courses online, it&amp;rsquo;s an Udemy like but self hosted.&lt;/p>
+&lt;p>Tutor is an amazing tool to get it deployed with Docker (or Kubernetes).&lt;/p>
+&lt;h1 id="installation">Installation&lt;/h1>
+&lt;h2 id="tutor-installation">Tutor installation&lt;/h2>
+&lt;p>Installation is really straightforward, a simple binary to download and you&amp;rsquo;re done !&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">sudo curl -L &lt;span class="s2">&amp;#34;https://github.com/overhangio/tutor/releases/download/v12.1.6/tutor-&lt;/span>&lt;span class="k">$(&lt;/span>uname -s&lt;span class="k">)&lt;/span>&lt;span class="s2">_&lt;/span>&lt;span class="k">$(&lt;/span>uname -m&lt;span class="k">)&lt;/span>&lt;span class="s2">&amp;#34;&lt;/span> -o /usr/local/bin/tutor
+sudo chmod &lt;span class="m">0755&lt;/span> /usr/local/bin/tutor
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>Shamefully copied/pasted from the &lt;a class="link" href="https://docs.tutor.overhang.io/install.html" target="_blank" rel="noopener"
+>documentation&lt;/a>&lt;/p>
+&lt;p>Really simple, no ?&lt;/p>
+&lt;h2 id="run-your-environnement">Run your environnement&lt;/h2>
+&lt;p>Now that we have Tutor installed in our environnement, we can launch our platform with the following command&lt;/p>
+&lt;pre tabindex="0">&lt;code>tutor local quickstart
+&lt;/code>&lt;/pre>&lt;p>You&amp;rsquo;ll be asked some questions to change some variables :&lt;/p>
+&lt;ul>
+&lt;li>Is it a production platform ?&lt;/li>
+&lt;li>Our instance name&lt;/li>
+&lt;li>Our contact email&lt;/li>
+&lt;/ul>
+&lt;p>For this tutorial, I&amp;rsquo;ll run a non production openedx.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">iderr@iderr-VirtualBox:~$ tutor &lt;span class="nb">local&lt;/span> &lt;span class="nv">quickstart&lt;/span>
+&lt;span class="o">==================================================&lt;/span>
+Interactive platform &lt;span class="nv">configuration&lt;/span>
+&lt;span class="o">==================================================&lt;/span>
+Are you configuring a production platform? Type &lt;span class="s1">&amp;#39;n&amp;#39;&lt;/span> &lt;span class="k">if&lt;/span> you are just testing Tutor on your &lt;span class="nb">local&lt;/span> computer &lt;span class="o">[&lt;/span>Y/n&lt;span class="o">]&lt;/span> n
+As you are not running this platform in production, we automatically &lt;span class="nb">set&lt;/span> the following configuration values:
+&lt;span class="nv">LMS_HOST&lt;/span> &lt;span class="o">=&lt;/span> local.overhang.io
+&lt;span class="nv">CMS_HOST&lt;/span> &lt;span class="o">=&lt;/span> studio.local.overhang.io
+&lt;span class="nv">ENABLE_HTTPS&lt;/span> &lt;span class="o">=&lt;/span> False
+Your platform name/title &lt;span class="o">[&lt;/span>My Open edX&lt;span class="o">]&lt;/span> platform1
+Your public contact email address &lt;span class="o">[&lt;/span>contact@local.overhang.io&lt;span class="o">]&lt;/span>
+The default language code &lt;span class="k">for&lt;/span> the platform &lt;span class="o">[&lt;/span>en&lt;span class="o">]&lt;/span>
+Configuration saved to /home/iderr/.local/share/tutor/config.yml
+Environment generated in /home/iderr/.local/share/tutor/env
+&lt;/code>&lt;/pre>&lt;/div>&lt;p>We let tutor do its job, and your environnement will be ready after seeing a text message like this&lt;/p>
+&lt;pre tabindex="0">&lt;code>All services initialised.
+The Open edX platform is now running in detached mode
+Your Open edX platform is ready and can be accessed at the following urls:
+http://local.overhang.io
+http://studio.local.overhang.io
+&lt;/code>&lt;/pre>&lt;p>For our test, I&amp;rsquo;ll stick with defaults urls, of course, you can use yours.
+I&amp;rsquo;ll modify my /etc/hosts file to redirect urls in my localhost environnement&lt;/p>
+&lt;pre tabindex="0">&lt;code>127.0.0.1 localhost local.overhang.io studio.local.overhang.io
+&lt;/code>&lt;/pre>&lt;p>TADA
+&lt;figure
+class="gallery-image"
+style="
+flex-grow: 349;
+flex-basis: 838px"
+>
+&lt;a href="https://iderr.github.io/p/introduction-to-tutor/success.jpg" data-size="2474x708">
+&lt;img src="https://iderr.github.io/p/introduction-to-tutor/success.jpg"
+width="2474"
+height="708"
+srcset="https://iderr.github.io/p/introduction-to-tutor/success_hub3cb6694bc50bce44bf9d046a2c7491f_113135_480x0_resize_q75_box.jpg 480w, https://iderr.github.io/p/introduction-to-tutor/success_hub3cb6694bc50bce44bf9d046a2c7491f_113135_1024x0_resize_q75_box.jpg 1024w"
+loading="lazy"
+alt="Success">
+&lt;/a>
+&lt;figcaption>Success&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h2 id="conclusion">Conclusion&lt;/h2>
+&lt;p>Congratulations, now, we have a running OpenEdx installation !
+See you next time for the configuration of OpenEdx and its customisation !&lt;/p></description></item><item><title>OVH provider for cert-manager DNS-01</title><link>https://iderr.github.io/p/ovh-provider-for-cert-manager-dns-01/</link><pubDate>Fri, 27 Aug 2021 00:00:00 +0000</pubDate><guid>https://iderr.github.io/p/ovh-provider-for-cert-manager-dns-01/</guid><description>&lt;img src="https://cdna.artstation.com/p/assets/images/images/009/211/358/large/bala-vidhya-sagar-1.jpg?1517728575" alt="Featured image of post OVH provider for cert-manager DNS-01" />&lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>First article of this new blog!&lt;/p>
 &lt;p>Today we will discuss how to configure automatic Let’s-Encrypt certificate renewal with a domain hosted in OVH.&lt;/p>
 &lt;p>I have not found a clear tutorial on how to setup a cluster wide OVH cert-manager provider so there it is.&lt;/p>
