@@ -160,4 +160,4 @@ helm install cert-manager-webhook-ovh ./deploy/cert-manager-webhook-ovh --set &l
 &lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" class="chroma">&lt;code class="language-bash" data-lang="bash">NAME READY SECRET AGE
 example-certificate True test-mydomain-com-tls 3s
 &lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="conclusion">Conclusion&lt;/h2>
-&lt;p>Congratulation, and see you next time for another article!&lt;/p></description></item></channel></rss>
+&lt;p>Congratulations, and see you next time for another article!&lt;/p></description></item></channel></rss>
