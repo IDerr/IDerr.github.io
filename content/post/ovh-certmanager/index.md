@@ -133,4 +133,4 @@ example-certificate True    test-mydomain-com-tls   3s
 
 ## Conclusion
 
-Congratulation, and see you next time for another article! 
+Congratulations, and see you next time for another article! 
