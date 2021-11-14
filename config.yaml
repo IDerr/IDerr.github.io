@@ -1,6 +1,8 @@
 baseurl: https://iderr.github.io
 languageCode: en-us
-theme: hugo-theme-stack
+theme: 
+  - hugo-theme-stack
+  - matomo
 paginate: 5
 title: IDerr
 
@@ -23,6 +25,9 @@ permalinks:
     page: /:slug/
 
 params:
+    matomo:
+        url: https://analytics.derraz.fr
+        id: 1
     mainSections:
         - post
     featuredImageField: image
