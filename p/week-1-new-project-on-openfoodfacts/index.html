@@ -58,19 +58,18 @@ How to integrate OpenFoodFacts database in Postgres !
 <section class=article-content>
 <h2 id=introduction>Introduction</h2>
 <p>Today we will discuss how to import OpenFoodFacts data from their CSV to a PostgreSQL Database.</p>
-<p>I wanted to work on OpenFoodFacts data, but never found MongoDB really great to work with,
-so I decided to migrate the CSV Data to Postgres, and clean the database (and give back a bit to this awesome community ! )</p>
+<p>I wanted to work on OpenFoodFacts data, but never found MongoDB really great to work with, so I decided to migrate the CSV Data to Postgres, and clean the database (and give back a bit to this awesome community)</p>
 <p>You can find all my work on my Github : <a class=link href=https://github.com/IDerr/Openfoodfacts target=_blank rel=noopener>https://github.com/IDerr/Openfoodfacts</a></p>
 <h2 id=how-to-download-openfoodfacts-data>How to download OpenFoodFacts data</h2>
 <p>OpenFoodFacts provides all their data for free on their website, with three different formats: Json (based on their mongodb database), CSV and RDF
-You can download al the data on their website: <a class=link href=https://openfoodfacts.org/data target=_blank rel=noopener>https://openfoodfacts.org/data</a>
-For the sake of simplicity, I&rsquo;ll use the CSV format for my project.</p>
+You can download al the data on their website: <a class=link href=https://openfoodfacts.org/data target=_blank rel=noopener>https://openfoodfacts.org/data</a></p>
+<p>For the sake of simplicity, I&rsquo;ll use the CSV format for my project.</p>
 <h2 id=how-to-import-data-from-the-csv-to-postgresql>How to import data from the CSV to PostgreSQL</h2>
 <p>As I said, I&rsquo;ll store my data on PostgreSQL, I think this is a great way to store linked data like this (A graph database would be a good fit also), it&rsquo;ll enforce that all fields are filled and the schema respected.</p>
-<p>I took the CSV file, checked all the columns available, and went with a simple schema (still can be improved :D)</p>
-<p>I have determined 12 Models (Additives, Allergens, Brand, Category, City, Country, Emb, Label, Package, Product, Store, Trace) and a bunch of Pivot tables for many to many relations</p>
+<p>I took the CSV file, checked all the columns available, and went with a simple schema (still can be improved :D).</p>
+<p>I have determined 12 Models (Additives, Allergens, Brand, Category, City, Country, Emb, Label, Package, Product, Store, Trace) and a bunch of Pivot tables for many to many relations.</p>
 <p>To implement models files, I used <a class=link href=https://www.sqlalchemy.org/ target=_blank rel=noopener>SQLAlchemy</a> to create my database schema programmatically, so I can reuse those models files if I want to interact with the database.</p>
-<p>A small python script to parse the CSV, remove incorrect data (same barcode on multiple products ?), and create the product with full links, and tada, we have our database with a lot of products !</p>
+<p>A small python script to parse the CSV, remove incorrect data (same barcode on multiple products ?), and create the product with full links, and tada, we have our database with a lot of products!</p>
 <p><figure class=gallery-image style=flex-grow:527;flex-basis:1267px>
 <a href=/p/week-1-new-project-on-openfoodfacts/count.jpg data-size=2323x440>
 <img src=/p/week-1-new-project-on-openfoodfacts/count.jpg width=2323 height=440 srcset="/p/week-1-new-project-on-openfoodfacts/count_huf54a51841fe046b2ee992a9fc8c7f888_65435_480x0_resize_q75_box.jpg 480w, /p/week-1-new-project-on-openfoodfacts/count_huf54a51841fe046b2ee992a9fc8c7f888_65435_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt=count>
@@ -85,12 +84,12 @@ We have multiple ways to analyse the database to find these errors:</p>
 <li>Use the CSV with some Python to detect anomalies (Pandas + some code)</li>
 <li>Use SQL to find anomalies (or again use Pandas with SQL as a backend)</li>
 </ul>
-<p>After that part, we can make an API based on the models we created before, to integrate the database with our applications !</p>
-<p>Finally, finding ways to improve our database, translations, ingredients, score and so on !</p>
+<p>After that part, we can make an API based on the models we created before, to integrate the database with our applications!</p>
+<p>Finally, finding ways to improve our database, translations, ingredients, score and so on!</p>
 <h2 id=conclusion>Conclusion</h2>
 <p>I&rsquo;ll continue working this project on my side, if anyone would like to help me on this project, feel free to create issues and PR on the github repository.
-I am also available on Openfoodfacts Slack (IDerr), if there&rsquo;s any questions !</p>
-<p>If anyone from openfoodfacts is interested on merging the work I am doing on the public database, don&rsquo;t hesitate !
+I am also available on Openfoodfacts Slack (IDerr), if there&rsquo;s any questions!</p>
+<p>If anyone from openfoodfacts is interested on merging the work I am doing on the public database, don&rsquo;t hesitate!
 See you next week for the next article (on OpenFoodFacts)!</p>
 </section>
 <footer class=article-footer>

@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IDerr</title><link>https://iderr.github.io/</link><description>Recent content on IDerr</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 14 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://iderr.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Week 1 - New project on OpenFoodFacts</title><link>https://iderr.github.io/p/week-1-new-project-on-openfoodfacts/</link><pubDate>Sun, 14 Nov 2021 00:00:00 +0000</pubDate><guid>https://iderr.github.io/p/week-1-new-project-on-openfoodfacts/</guid><description>&lt;img src="https://iderr.github.io/p/week-1-new-project-on-openfoodfacts/background.png" alt="Featured image of post Week 1 - New project on OpenFoodFacts" />&lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>Today we will discuss how to import OpenFoodFacts data from their CSV to a PostgreSQL Database.&lt;/p>
-&lt;p>I wanted to work on OpenFoodFacts data, but never found MongoDB really great to work with,
-so I decided to migrate the CSV Data to Postgres, and clean the database (and give back a bit to this awesome community ! )&lt;/p>
+&lt;p>I wanted to work on OpenFoodFacts data, but never found MongoDB really great to work with, so I decided to migrate the CSV Data to Postgres, and clean the database (and give back a bit to this awesome community)&lt;/p>
 &lt;p>You can find all my work on my Github : &lt;a class="link" href="https://github.com/IDerr/Openfoodfacts" target="_blank" rel="noopener"
 >https://github.com/IDerr/Openfoodfacts&lt;/a>&lt;/p>
 &lt;h2 id="how-to-download-openfoodfacts-data">How to download OpenFoodFacts data&lt;/h2>
 &lt;p>OpenFoodFacts provides all their data for free on their website, with three different formats: Json (based on their mongodb database), CSV and RDF
 You can download al the data on their website: &lt;a class="link" href="https://openfoodfacts.org/data" target="_blank" rel="noopener"
->https://openfoodfacts.org/data&lt;/a>
-For the sake of simplicity, I&amp;rsquo;ll use the CSV format for my project.&lt;/p>
+>https://openfoodfacts.org/data&lt;/a>&lt;/p>
+&lt;p>For the sake of simplicity, I&amp;rsquo;ll use the CSV format for my project.&lt;/p>
 &lt;h2 id="how-to-import-data-from-the-csv-to-postgresql">How to import data from the CSV to PostgreSQL&lt;/h2>
 &lt;p>As I said, I&amp;rsquo;ll store my data on PostgreSQL, I think this is a great way to store linked data like this (A graph database would be a good fit also), it&amp;rsquo;ll enforce that all fields are filled and the schema respected.&lt;/p>
-&lt;p>I took the CSV file, checked all the columns available, and went with a simple schema (still can be improved :D)&lt;/p>
-&lt;p>I have determined 12 Models (Additives, Allergens, Brand, Category, City, Country, Emb, Label, Package, Product, Store, Trace) and a bunch of Pivot tables for many to many relations&lt;/p>
+&lt;p>I took the CSV file, checked all the columns available, and went with a simple schema (still can be improved :D).&lt;/p>
+&lt;p>I have determined 12 Models (Additives, Allergens, Brand, Category, City, Country, Emb, Label, Package, Product, Store, Trace) and a bunch of Pivot tables for many to many relations.&lt;/p>
 &lt;p>To implement models files, I used &lt;a class="link" href="https://www.sqlalchemy.org/" target="_blank" rel="noopener"
 >SQLAlchemy&lt;/a> to create my database schema programmatically, so I can reuse those models files if I want to interact with the database.&lt;/p>
-&lt;p>A small python script to parse the CSV, remove incorrect data (same barcode on multiple products ?), and create the product with full links, and tada, we have our database with a lot of products !&lt;/p>
+&lt;p>A small python script to parse the CSV, remove incorrect data (same barcode on multiple products ?), and create the product with full links, and tada, we have our database with a lot of products!&lt;/p>
 &lt;p>&lt;figure
 class="gallery-image"
 style="
@@ -40,12 +39,12 @@ We have multiple ways to analyse the database to find these errors:&lt;/p>
 &lt;li>Use the CSV with some Python to detect anomalies (Pandas + some code)&lt;/li>
 &lt;li>Use SQL to find anomalies (or again use Pandas with SQL as a backend)&lt;/li>
 &lt;/ul>
-&lt;p>After that part, we can make an API based on the models we created before, to integrate the database with our applications !&lt;/p>
-&lt;p>Finally, finding ways to improve our database, translations, ingredients, score and so on !&lt;/p>
+&lt;p>After that part, we can make an API based on the models we created before, to integrate the database with our applications!&lt;/p>
+&lt;p>Finally, finding ways to improve our database, translations, ingredients, score and so on!&lt;/p>
 &lt;h2 id="conclusion">Conclusion&lt;/h2>
 &lt;p>I&amp;rsquo;ll continue working this project on my side, if anyone would like to help me on this project, feel free to create issues and PR on the github repository.
-I am also available on Openfoodfacts Slack (IDerr), if there&amp;rsquo;s any questions !&lt;/p>
-&lt;p>If anyone from openfoodfacts is interested on merging the work I am doing on the public database, don&amp;rsquo;t hesitate !
+I am also available on Openfoodfacts Slack (IDerr), if there&amp;rsquo;s any questions!&lt;/p>
+&lt;p>If anyone from openfoodfacts is interested on merging the work I am doing on the public database, don&amp;rsquo;t hesitate!
 See you next week for the next article (on OpenFoodFacts)!&lt;/p></description></item><item><title>Introduction to Tutor</title><link>https://iderr.github.io/p/introduction-to-tutor/</link><pubDate>Sun, 07 Nov 2021 00:00:00 +0000</pubDate><guid>https://iderr.github.io/p/introduction-to-tutor/</guid><description>&lt;img src="https://iderr.github.io/p/introduction-to-tutor/background.png" alt="Featured image of post Introduction to Tutor" />&lt;h1 id="introduction">Introduction&lt;/h1>
 &lt;p>Today, we will discuss how to use Tutor for deploying OpenEdx.
 OpenEdx is a platform used to deploy your courses online, it&amp;rsquo;s an Udemy like but self hosted.&lt;/p>
