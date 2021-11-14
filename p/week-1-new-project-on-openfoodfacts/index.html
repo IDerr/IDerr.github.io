@@ -1,0 +1,176 @@
+<!doctype html><html lang=en-us>
+<head><meta charset=utf-8>
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="How to integrate OpenFoodFacts database in Postgres !"><title>Week 1 - New project on OpenFoodFacts</title>
+<link rel=canonical href=https://iderr.github.io/p/week-1-new-project-on-openfoodfacts/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Week 1 - New project on OpenFoodFacts">
+<meta property="og:description" content="How to integrate OpenFoodFacts database in Postgres !">
+<meta property="og:url" content="https://iderr.github.io/p/week-1-new-project-on-openfoodfacts/">
+<meta property="og:site_name" content="IDerr">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="OpenFoodFacts"><meta property="article:published_time" content="2021-11-14T00:00:00+00:00"><meta property="article:modified_time" content="2021-11-14T00:00:00+00:00"><meta property="og:image" content="https://iderr.github.io/p/week-1-new-project-on-openfoodfacts/background.png">
+<meta name=twitter:title content="Week 1 - New project on OpenFoodFacts">
+<meta name=twitter:description content="How to integrate OpenFoodFacts database in Postgres !"><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://iderr.github.io/p/week-1-new-project-on-openfoodfacts/background.png">
+</head>
+<body class="article-page has-toc">
+<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"dark")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
+<div class="container main-container flex
+extended">
+<div id=article-toolbar>
+<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
+<span>Back</span>
+</a>
+</div>
+<main class="main full-width">
+<article class="has-image main-article">
+<header class=article-header>
+<div class=article-image>
+<a href=/p/week-1-new-project-on-openfoodfacts/>
+<img src=/p/week-1-new-project-on-openfoodfacts/background_hu49c03114a9ce8ad2bc0bd62c0ddb3f2a_750790_800x0_resize_box_3.png srcset="/p/week-1-new-project-on-openfoodfacts/background_hu49c03114a9ce8ad2bc0bd62c0ddb3f2a_750790_800x0_resize_box_3.png 800w, /p/week-1-new-project-on-openfoodfacts/background_hu49c03114a9ce8ad2bc0bd62c0ddb3f2a_750790_1600x0_resize_box_3.png 1600w" width=800 height=450 loading=lazy alt="Featured image of post Week 1 - New project on OpenFoodFacts">
+</a>
+</div>
+<div class=article-details>
+<header class=article-category>
+<a href=/categories/food/>
+Food
+</a>
+<a href=/categories/openfoodfacts/>
+OpenFoodFacts
+</a>
+</header>
+<h2 class=article-title>
+<a href=/p/week-1-new-project-on-openfoodfacts/>Week 1 - New project on OpenFoodFacts</a>
+</h2>
+<h3 class=article-subtitle>
+How to integrate OpenFoodFacts database in Postgres !
+</h3>
+<footer class=article-time>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
+<time class=article-time--published>Nov 14, 2021</time>
+</div>
+<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
+<time class=article-time--reading>
+3 minute read
+</time>
+</div>
+</footer>
+</div>
+</header>
+<section class=article-content>
+<h2 id=introduction>Introduction</h2>
+<p>Today we will discuss how to import OpenFoodFacts data from their CSV to a PostgreSQL Database.</p>
+<p>I wanted to work on OpenFoodFacts data, but never found MongoDB really great to work with,
+so I decided to migrate the CSV Data to Postgres, and clean the database (and give back a bit to this awesome community ! )</p>
+<p>You can find all my work on my Github : <a class=link href=https://github.com/IDerr/Openfoodfacts target=_blank rel=noopener>https://github.com/IDerr/Openfoodfacts</a></p>
+<h2 id=how-to-download-openfoodfacts-data>How to download OpenFoodFacts data</h2>
+<p>OpenFoodFacts provides all their data for free on their website, with three different formats: Json (based on their mongodb database), CSV and RDF
+You can download al the data on their website: <a class=link href=https://openfoodfacts.org/data target=_blank rel=noopener>https://openfoodfacts.org/data</a>
+For the sake of simplicity, I&rsquo;ll use the CSV format for my project.</p>
+<h2 id=how-to-import-data-from-the-csv-to-postgresql>How to import data from the CSV to PostgreSQL</h2>
+<p>As I said, I&rsquo;ll store my data on PostgreSQL, I think this is a great way to store linked data like this (A graph database would be a good fit also), it&rsquo;ll enforce that all fields are filled and the schema respected.</p>
+<p>I took the CSV file, checked all the columns available, and went with a simple schema (still can be improved :D)</p>
+<p>I have determined 12 Models (Additives, Allergens, Brand, Category, City, Country, Emb, Label, Package, Product, Store, Trace) and a bunch of Pivot tables for many to many relations</p>
+<p>To implement models files, I used <a class=link href=https://www.sqlalchemy.org/ target=_blank rel=noopener>SQLAlchemy</a> to create my database schema programmatically, so I can reuse those models files if I want to interact with the database.</p>
+<p>A small python script to parse the CSV, remove incorrect data (same barcode on multiple products ?), and create the product with full links, and tada, we have our database with a lot of products !</p>
+<p><figure class=gallery-image style=flex-grow:527;flex-basis:1267px>
+<a href=/p/week-1-new-project-on-openfoodfacts/count.jpg data-size=2323x440>
+<img src=/p/week-1-new-project-on-openfoodfacts/count.jpg width=2323 height=440 srcset="/p/week-1-new-project-on-openfoodfacts/count_huf54a51841fe046b2ee992a9fc8c7f888_65435_480x0_resize_q75_box.jpg 480w, /p/week-1-new-project-on-openfoodfacts/count_huf54a51841fe046b2ee992a9fc8c7f888_65435_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt=count>
+</a>
+<figcaption>count</figcaption>
+</figure></p>
+<h2 id=next-steps>Next steps</h2>
+<p>Now that our database is ready, there is still work that can be done.
+The fist step I see is cleaning possible errors or inconsistent data.
+We have multiple ways to analyse the database to find these errors:</p>
+<ul>
+<li>Use the CSV with some Python to detect anomalies (Pandas + some code)</li>
+<li>Use SQL to find anomalies (or again use Pandas with SQL as a backend)</li>
+</ul>
+<p>After that part, we can make an API based on the models we created before, to integrate the database with our applications !</p>
+<p>Finally, finding ways to improve our database, translations, ingredients, score and so on !</p>
+<h2 id=conclusion>Conclusion</h2>
+<p>I&rsquo;ll continue working this project on my side, if anyone would like to help me on this project, feel free to create issues and PR on the github repository.
+I am also available on Openfoodfacts Slack (IDerr), if there&rsquo;s any questions !</p>
+<p>If anyone from openfoodfacts is interested on merging the work I am doing on the public database, don&rsquo;t hesitate !
+See you next week for the next article (on OpenFoodFacts)!</p>
+</section>
+<footer class=article-footer>
+<section class=article-tags>
+<a href=/tags/openfoodfacts/>OpenFoodFacts</a>
+</section>
+<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
+<span>Licensed under CC BY-NC-SA 4.0</span>
+</section>
+</footer>
+</article>
+<aside class=related-contents--wrapper>
+</aside>
+<footer class=site-footer>
+<section class=copyright>
+&copy;
+2021 IDerr
+</section>
+<section class=powerby>
+Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
+Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
+</section>
+</footer>
+<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
+<div class=pswp__bg></div>
+<div class=pswp__scroll-wrap>
+<div class=pswp__container>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+<div class=pswp__item></div>
+</div>
+<div class="pswp__ui pswp__ui--hidden">
+<div class=pswp__top-bar>
+<div class=pswp__counter></div>
+<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<button class="pswp__button pswp__button--share" title=Share></button>
+<button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+<div class=pswp__preloader>
+<div class=pswp__preloader__icn>
+<div class=pswp__preloader__cut>
+<div class=pswp__preloader__donut></div>
+</div>
+</div>
+</div>
+</div>
+<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+<div class=pswp__share-tooltip></div>
+</div>
+<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+</button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+</button>
+<div class=pswp__caption>
+<div class=pswp__caption__center></div>
+</div>
+</div>
+</div>
+</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
+</main>
+<aside class="sidebar right-sidebar sticky">
+<section class="widget archives">
+<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
+</div>
+<h2 class="widget-title section-title">Table of contents</h2>
+<div class=widget--toc>
+<nav id=TableOfContents>
+<ol>
+<li><a href=#introduction>Introduction</a></li>
+<li><a href=#how-to-download-openfoodfacts-data>How to download OpenFoodFacts data</a></li>
+<li><a href=#how-to-import-data-from-the-csv-to-postgresql>How to import data from the CSV to PostgreSQL</a></li>
+<li><a href=#next-steps>Next steps</a></li>
+<li><a href=#conclusion>Conclusion</a></li>
+</ol>
+</nav>
+</div>
+</section>
+</aside>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
+</body>
+</html>
