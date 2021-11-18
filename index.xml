@@ -158,12 +158,12 @@ alt="4.jpg">
 &lt;/a>
 &lt;figcaption>4.jpg&lt;/figcaption>
 &lt;/figure>&lt;/p>
-&lt;p>Oh, we have found 4 products without any creator, weird&amp;hellip;
-We can now report that to the OpenFood facts team :)&lt;/p>
-&lt;p>A lot can be done with that, and if tomorrow we want to build an Android app, our API will be ready to go !&lt;/p>
+&lt;p>Oh, we have found 4 products without any creator, weird&amp;hellip;&lt;/p>
+&lt;p>We can now report that to the OpenFood facts team :)&lt;/p>
+&lt;p>Analysis can be done very quicky with tools like this, and if we want to build an Android app, our API will be ready to go !&lt;/p>
 &lt;h2 id="next-steps">Next steps&lt;/h2>
-&lt;p>Next steps, develop a lot more graphql queries to find inconsitent data, and improve the model.
-I&amp;rsquo;ll focus on that for next week !&lt;/p>
+&lt;p>Next steps, develop more GraphQL queries to find inconsistent data &amp;amp; improve the data model.
+I&amp;rsquo;ll focus on that now !&lt;/p>
 &lt;p>Also, that we have our API, we can try to make a simple app to try the integration with Hasura.&lt;/p>
 &lt;h2 id="conclusion">Conclusion&lt;/h2>
 &lt;p>I&amp;rsquo;ll continue working on my side, if anyone would like to help me on this project, feel free to create issues and PR on the github repository.
