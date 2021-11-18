@@ -88,13 +88,14 @@ query GetProductsWithoutCreator {
 ![4.jpg](4.jpg)
 
 Oh, we have found 4 products without any creator, weird...
+
 We can now report that to the OpenFood facts team :)
 
-A lot can be done with that, and if tomorrow we want to build an Android app, our API will be ready to go !
+Analysis can be done very quicky with tools like this, and if we want to build an Android app, our API will be ready to go !
 
 ## Next steps
-Next steps, develop a lot more graphql queries to find inconsitent data, and improve the model.
-I'll focus on that for next week ! 
+Next steps, develop more GraphQL queries to find inconsistent data & improve the data model.
+I'll focus on that now ! 
 
 Also, that we have our API, we can try to make a simple app to try the integration with Hasura.
 
