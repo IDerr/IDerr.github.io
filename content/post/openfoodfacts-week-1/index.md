@@ -41,7 +41,7 @@ A small python script to parse the CSV, remove incorrect data (same barcode on m
 
 ## Next steps
 Now that our database is ready, there is still work that can be done.
-The fist step I see is cleaning possible errors or inconsistent data.
+The first step I see is cleaning possible errors or inconsistent data.
 We have multiple ways to analyse the database to find these errors:
   - Use the CSV with some Python to detect anomalies (Pandas + some code)
   - Use SQL to find anomalies (or again use Pandas with SQL as a backend)
