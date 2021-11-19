@@ -57,7 +57,7 @@ Now you run the tool easily with
 ```
 docker-compose up -d 
 ```
-![1.jpg](2.jpg)
+![1.jpg](1.jpg)
 
 TADAA, you know have a hasura engine ready, just type ``` http://youhostname:8080/console```
 You'll be welcomed with a super UI.
@@ -85,6 +85,7 @@ query GetProductsWithoutCreator {
   }
 }
 ```
+
 ![4.jpg](4.jpg)
 
 Oh, we have found 4 products without any creator, weird...
