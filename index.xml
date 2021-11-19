@@ -36,14 +36,14 @@ HASURA_GRAPHQL_ENABLED_LOG_TYPES: startup, http-log, webhook-log, websocket-log,
 &lt;/code>&lt;/pre>&lt;p>&lt;figure
 class="gallery-image"
 style="
-flex-grow: 73;
-flex-basis: 176px"
+flex-grow: 387;
+flex-basis: 930px"
 >
-&lt;a href="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/2.jpg" data-size="876x1189">
-&lt;img src="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/2.jpg"
-width="876"
-height="1189"
-srcset="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/2_hu4052cdfc130d7e3aac07c786d212cc93_98152_480x0_resize_q75_box.jpg 480w, https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/2_hu4052cdfc130d7e3aac07c786d212cc93_98152_1024x0_resize_q75_box.jpg 1024w"
+&lt;a href="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/1.jpg" data-size="2544x656">
+&lt;img src="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/1.jpg"
+width="2544"
+height="656"
+srcset="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/1_huc88db7e36b75f505937344579e37d924_155988_480x0_resize_q75_box.jpg 480w, https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/1_huc88db7e36b75f505937344579e37d924_155988_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
 alt="1.jpg">
 &lt;/a>
