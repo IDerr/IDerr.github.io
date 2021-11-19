@@ -1,7 +1,7 @@
 ---
 author: IDerr
 title: Week 2 - Improving OpenFoodFacts 
-date: 2021-11-14
+date: 2021-11-19
 description: How to analyse and create an API easily for OpenFoodFacts ! 
 image: "background.png"
 categories: 

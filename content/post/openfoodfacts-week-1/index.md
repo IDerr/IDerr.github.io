@@ -1,7 +1,7 @@
 ---
 author: IDerr
 title: Week 1 - New project on OpenFoodFacts 
-date: 2021-11-18
+date: 2021-11-14
 description: How to integrate OpenFoodFacts database in Postgres ! 
 image: "background.png"
 categories: 
