@@ -1,8 +1,8 @@
 ---
 author: IDerr
-title: Week 2 - Improving OpenFoodFacts 
+title: Week 2 - Using Hasura to analyze OpenFoodFacts 
 date: 2021-11-19
-description: How to analyse and create an API easily for OpenFoodFacts ! 
+description: How to analyze and create an API easily for OpenFoodFacts ! 
 image: "background.png"
 categories: 
     - "Food"
