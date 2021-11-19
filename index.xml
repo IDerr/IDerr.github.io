@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IDerr</title><link>https://iderr.github.io/</link><description>Recent content on IDerr</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 19 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://iderr.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Week 2 - Improving OpenFoodFacts</title><link>https://iderr.github.io/p/week-2-improving-openfoodfacts/</link><pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate><guid>https://iderr.github.io/p/week-2-improving-openfoodfacts/</guid><description>&lt;img src="https://iderr.github.io/p/week-2-improving-openfoodfacts/background.png" alt="Featured image of post Week 2 - Improving OpenFoodFacts" />&lt;h2 id="introduction">Introduction&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>IDerr</title><link>https://iderr.github.io/</link><description>Recent content on IDerr</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Fri, 19 Nov 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://iderr.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Week 2 - Using Hasura to analyze OpenFoodFacts</title><link>https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/</link><pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate><guid>https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/</guid><description>&lt;img src="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/background.png" alt="Featured image of post Week 2 - Using Hasura to analyze OpenFoodFacts" />&lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>In the last article, we have imported OpenFoodFacts data from a CSV format to PostgreSQL.&lt;/p>
 &lt;p>Now, our data is ready to be analysed by anyone.
 SQL can be great for analysis but if we want to build an application, we&amp;rsquo;ll need another transport layer like REST or GraphQL.
@@ -39,11 +39,11 @@ style="
 flex-grow: 73;
 flex-basis: 176px"
 >
-&lt;a href="https://iderr.github.io/p/week-2-improving-openfoodfacts/2.jpg" data-size="876x1189">
-&lt;img src="https://iderr.github.io/p/week-2-improving-openfoodfacts/2.jpg"
+&lt;a href="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/2.jpg" data-size="876x1189">
+&lt;img src="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/2.jpg"
 width="876"
 height="1189"
-srcset="https://iderr.github.io/p/week-2-improving-openfoodfacts/2_hu4052cdfc130d7e3aac07c786d212cc93_98152_480x0_resize_q75_box.jpg 480w, https://iderr.github.io/p/week-2-improving-openfoodfacts/2_hu4052cdfc130d7e3aac07c786d212cc93_98152_1024x0_resize_q75_box.jpg 1024w"
+srcset="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/2_hu4052cdfc130d7e3aac07c786d212cc93_98152_480x0_resize_q75_box.jpg 480w, https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/2_hu4052cdfc130d7e3aac07c786d212cc93_98152_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
 alt="1.jpg">
 &lt;/a>
@@ -58,11 +58,11 @@ style="
 flex-grow: 73;
 flex-basis: 176px"
 >
-&lt;a href="https://iderr.github.io/p/week-2-improving-openfoodfacts/2.jpg" data-size="876x1189">
-&lt;img src="https://iderr.github.io/p/week-2-improving-openfoodfacts/2.jpg"
+&lt;a href="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/2.jpg" data-size="876x1189">
+&lt;img src="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/2.jpg"
 width="876"
 height="1189"
-srcset="https://iderr.github.io/p/week-2-improving-openfoodfacts/2_hu4052cdfc130d7e3aac07c786d212cc93_98152_480x0_resize_q75_box.jpg 480w, https://iderr.github.io/p/week-2-improving-openfoodfacts/2_hu4052cdfc130d7e3aac07c786d212cc93_98152_1024x0_resize_q75_box.jpg 1024w"
+srcset="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/2_hu4052cdfc130d7e3aac07c786d212cc93_98152_480x0_resize_q75_box.jpg 480w, https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/2_hu4052cdfc130d7e3aac07c786d212cc93_98152_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
 alt="2.jpg">
 &lt;/a>
@@ -76,11 +76,11 @@ style="
 flex-grow: 84;
 flex-basis: 203px"
 >
-&lt;a href="https://iderr.github.io/p/week-2-improving-openfoodfacts/3.jpg" data-size="636x749">
-&lt;img src="https://iderr.github.io/p/week-2-improving-openfoodfacts/3.jpg"
+&lt;a href="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/3.jpg" data-size="636x749">
+&lt;img src="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/3.jpg"
 width="636"
 height="749"
-srcset="https://iderr.github.io/p/week-2-improving-openfoodfacts/3_hu66674bae8d0734084fd7dfcb22298bd5_155404_480x0_resize_q75_box.jpg 480w, https://iderr.github.io/p/week-2-improving-openfoodfacts/3_hu66674bae8d0734084fd7dfcb22298bd5_155404_1024x0_resize_q75_box.jpg 1024w"
+srcset="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/3_hu66674bae8d0734084fd7dfcb22298bd5_155404_480x0_resize_q75_box.jpg 480w, https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/3_hu66674bae8d0734084fd7dfcb22298bd5_155404_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
 alt="3.jpg">
 &lt;/a>
@@ -101,11 +101,11 @@ style="
 flex-grow: 283;
 flex-basis: 679px"
 >
-&lt;a href="https://iderr.github.io/p/week-2-improving-openfoodfacts/4.jpg" data-size="1821x643">
-&lt;img src="https://iderr.github.io/p/week-2-improving-openfoodfacts/4.jpg"
+&lt;a href="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/4.jpg" data-size="1821x643">
+&lt;img src="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/4.jpg"
 width="1821"
 height="643"
-srcset="https://iderr.github.io/p/week-2-improving-openfoodfacts/4_huc5951a890f0663c9222f2c1639a69718_89499_480x0_resize_q75_box.jpg 480w, https://iderr.github.io/p/week-2-improving-openfoodfacts/4_huc5951a890f0663c9222f2c1639a69718_89499_1024x0_resize_q75_box.jpg 1024w"
+srcset="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/4_huc5951a890f0663c9222f2c1639a69718_89499_480x0_resize_q75_box.jpg 480w, https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/4_huc5951a890f0663c9222f2c1639a69718_89499_1024x0_resize_q75_box.jpg 1024w"
 loading="lazy"
 alt="4.jpg">
 &lt;/a>

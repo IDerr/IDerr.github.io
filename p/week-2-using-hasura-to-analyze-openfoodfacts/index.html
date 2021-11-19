@@ -1,15 +1,15 @@
 <!doctype html><html lang=en-us>
 <head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="How to analyse and create an API easily for OpenFoodFacts !"><title>Week 2 - Improving OpenFoodFacts</title>
-<link rel=canonical href=https://iderr.github.io/p/week-2-improving-openfoodfacts/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Week 2 - Improving OpenFoodFacts">
-<meta property="og:description" content="How to analyse and create an API easily for OpenFoodFacts !">
-<meta property="og:url" content="https://iderr.github.io/p/week-2-improving-openfoodfacts/">
+<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="How to analyze and create an API easily for OpenFoodFacts !"><title>Week 2 - Using Hasura to analyze OpenFoodFacts</title>
+<link rel=canonical href=https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/>
+<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Week 2 - Using Hasura to analyze OpenFoodFacts">
+<meta property="og:description" content="How to analyze and create an API easily for OpenFoodFacts !">
+<meta property="og:url" content="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/">
 <meta property="og:site_name" content="IDerr">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="OpenFoodFacts"><meta property="article:published_time" content="2021-11-19T00:00:00+00:00"><meta property="article:modified_time" content="2021-11-19T00:00:00+00:00"><meta property="og:image" content="https://iderr.github.io/p/week-2-improving-openfoodfacts/background.png">
-<meta name=twitter:title content="Week 2 - Improving OpenFoodFacts">
-<meta name=twitter:description content="How to analyse and create an API easily for OpenFoodFacts !"><meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://iderr.github.io/p/week-2-improving-openfoodfacts/background.png">
+<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="OpenFoodFacts"><meta property="article:published_time" content="2021-11-19T00:00:00+00:00"><meta property="article:modified_time" content="2021-11-19T00:00:00+00:00"><meta property="og:image" content="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/background.png">
+<meta name=twitter:title content="Week 2 - Using Hasura to analyze OpenFoodFacts">
+<meta name=twitter:description content="How to analyze and create an API easily for OpenFoodFacts !"><meta name=twitter:card content="summary_large_image">
+<meta name=twitter:image content="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/background.png">
 <script data-id=matomo-tracking data-matomo-tracking-url=https://analytics.derraz.fr data-matomo-tracking-id=1 src=/js/matomo-tracking.min.46acc2e1e3847ae7ddaaf1adb19b2d5755a94ebfc905716dea057f60061bcfac.js integrity="sha256-RqzC4eOEeufdqvGtsZstV1WpTr/JBXFt6gV/YAYbz6w=" crossorigin=anonymous defer></script>
 </head>
 <body class="article-page has-toc">
@@ -25,8 +25,8 @@ extended">
 <article class="has-image main-article">
 <header class=article-header>
 <div class=article-image>
-<a href=/p/week-2-improving-openfoodfacts/>
-<img src=/p/week-2-improving-openfoodfacts/background_hu7f4aefc3a426d3b4990b4956a4ec486a_256879_800x0_resize_box_3.png srcset="/p/week-2-improving-openfoodfacts/background_hu7f4aefc3a426d3b4990b4956a4ec486a_256879_800x0_resize_box_3.png 800w, /p/week-2-improving-openfoodfacts/background_hu7f4aefc3a426d3b4990b4956a4ec486a_256879_1600x0_resize_box_3.png 1600w" width=800 height=450 loading=lazy alt="Featured image of post Week 2 - Improving OpenFoodFacts">
+<a href=/p/week-2-using-hasura-to-analyze-openfoodfacts/>
+<img src=/p/week-2-using-hasura-to-analyze-openfoodfacts/background_hu7f4aefc3a426d3b4990b4956a4ec486a_256879_800x0_resize_box_3.png srcset="/p/week-2-using-hasura-to-analyze-openfoodfacts/background_hu7f4aefc3a426d3b4990b4956a4ec486a_256879_800x0_resize_box_3.png 800w, /p/week-2-using-hasura-to-analyze-openfoodfacts/background_hu7f4aefc3a426d3b4990b4956a4ec486a_256879_1600x0_resize_box_3.png 1600w" width=800 height=450 loading=lazy alt="Featured image of post Week 2 - Using Hasura to analyze OpenFoodFacts">
 </a>
 </div>
 <div class=article-details>
@@ -39,10 +39,10 @@ OpenFoodFacts
 </a>
 </header>
 <h2 class=article-title>
-<a href=/p/week-2-improving-openfoodfacts/>Week 2 - Improving OpenFoodFacts</a>
+<a href=/p/week-2-using-hasura-to-analyze-openfoodfacts/>Week 2 - Using Hasura to analyze OpenFoodFacts</a>
 </h2>
 <h3 class=article-subtitle>
-How to analyse and create an API easily for OpenFoodFacts !
+How to analyze and create an API easily for OpenFoodFacts !
 </h3>
 <footer class=article-time>
 <div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
@@ -91,8 +91,8 @@ services:
 </code></pre><p>Now you run the tool easily with</p>
 <pre tabindex=0><code>docker-compose up -d 
 </code></pre><p><figure class=gallery-image style=flex-grow:73;flex-basis:176px>
-<a href=/p/week-2-improving-openfoodfacts/2.jpg data-size=876x1189>
-<img src=/p/week-2-improving-openfoodfacts/2.jpg width=876 height=1189 srcset="/p/week-2-improving-openfoodfacts/2_hu4052cdfc130d7e3aac07c786d212cc93_98152_480x0_resize_q75_box.jpg 480w, /p/week-2-improving-openfoodfacts/2_hu4052cdfc130d7e3aac07c786d212cc93_98152_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt=1.jpg>
+<a href=/p/week-2-using-hasura-to-analyze-openfoodfacts/2.jpg data-size=876x1189>
+<img src=/p/week-2-using-hasura-to-analyze-openfoodfacts/2.jpg width=876 height=1189 srcset="/p/week-2-using-hasura-to-analyze-openfoodfacts/2_hu4052cdfc130d7e3aac07c786d212cc93_98152_480x0_resize_q75_box.jpg 480w, /p/week-2-using-hasura-to-analyze-openfoodfacts/2_hu4052cdfc130d7e3aac07c786d212cc93_98152_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt=1.jpg>
 </a>
 <figcaption>1.jpg</figcaption>
 </figure></p>
@@ -100,16 +100,16 @@ services:
 You&rsquo;ll be welcomed with a super UI.</p>
 <p>You can now go to the &ldquo;Data&rdquo; section where you can setup the relationship between your database and Hasura.</p>
 <p><figure class=gallery-image style=flex-grow:73;flex-basis:176px>
-<a href=/p/week-2-improving-openfoodfacts/2.jpg data-size=876x1189>
-<img src=/p/week-2-improving-openfoodfacts/2.jpg width=876 height=1189 srcset="/p/week-2-improving-openfoodfacts/2_hu4052cdfc130d7e3aac07c786d212cc93_98152_480x0_resize_q75_box.jpg 480w, /p/week-2-improving-openfoodfacts/2_hu4052cdfc130d7e3aac07c786d212cc93_98152_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt=2.jpg>
+<a href=/p/week-2-using-hasura-to-analyze-openfoodfacts/2.jpg data-size=876x1189>
+<img src=/p/week-2-using-hasura-to-analyze-openfoodfacts/2.jpg width=876 height=1189 srcset="/p/week-2-using-hasura-to-analyze-openfoodfacts/2_hu4052cdfc130d7e3aac07c786d212cc93_98152_480x0_resize_q75_box.jpg 480w, /p/week-2-using-hasura-to-analyze-openfoodfacts/2_hu4052cdfc130d7e3aac07c786d212cc93_98152_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt=2.jpg>
 </a>
 <figcaption>2.jpg</figcaption>
 </figure></p>
 <p>Just track everything to link all tables !</p>
 <p>Then it&rsquo;ll automatically detect all the links between tables, track them also.</p>
 <p><figure class=gallery-image style=flex-grow:84;flex-basis:203px>
-<a href=/p/week-2-improving-openfoodfacts/3.jpg data-size=636x749>
-<img src=/p/week-2-improving-openfoodfacts/3.jpg width=636 height=749 srcset="/p/week-2-improving-openfoodfacts/3_hu66674bae8d0734084fd7dfcb22298bd5_155404_480x0_resize_q75_box.jpg 480w, /p/week-2-improving-openfoodfacts/3_hu66674bae8d0734084fd7dfcb22298bd5_155404_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt=3.jpg>
+<a href=/p/week-2-using-hasura-to-analyze-openfoodfacts/3.jpg data-size=636x749>
+<img src=/p/week-2-using-hasura-to-analyze-openfoodfacts/3.jpg width=636 height=749 srcset="/p/week-2-using-hasura-to-analyze-openfoodfacts/3_hu66674bae8d0734084fd7dfcb22298bd5_155404_480x0_resize_q75_box.jpg 480w, /p/week-2-using-hasura-to-analyze-openfoodfacts/3_hu66674bae8d0734084fd7dfcb22298bd5_155404_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt=3.jpg>
 </a>
 <figcaption>3.jpg</figcaption>
 </figure></p>
@@ -123,8 +123,8 @@ You&rsquo;ll be welcomed with a super UI.</p>
 </span><span class=w>  </span><span class=p>}</span><span class=w>
 </span><span class=w></span><span class=p>}</span><span class=w>
 </span></code></pre></div><p><figure class=gallery-image style=flex-grow:283;flex-basis:679px>
-<a href=/p/week-2-improving-openfoodfacts/4.jpg data-size=1821x643>
-<img src=/p/week-2-improving-openfoodfacts/4.jpg width=1821 height=643 srcset="/p/week-2-improving-openfoodfacts/4_huc5951a890f0663c9222f2c1639a69718_89499_480x0_resize_q75_box.jpg 480w, /p/week-2-improving-openfoodfacts/4_huc5951a890f0663c9222f2c1639a69718_89499_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt=4.jpg>
+<a href=/p/week-2-using-hasura-to-analyze-openfoodfacts/4.jpg data-size=1821x643>
+<img src=/p/week-2-using-hasura-to-analyze-openfoodfacts/4.jpg width=1821 height=643 srcset="/p/week-2-using-hasura-to-analyze-openfoodfacts/4_huc5951a890f0663c9222f2c1639a69718_89499_480x0_resize_q75_box.jpg 480w, /p/week-2-using-hasura-to-analyze-openfoodfacts/4_huc5951a890f0663c9222f2c1639a69718_89499_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt=4.jpg>
 </a>
 <figcaption>4.jpg</figcaption>
 </figure></p>
