@@ -1,112 +1,37 @@
-<!doctype html><html lang=en-us>
-<head><meta charset=utf-8>
-<meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="How to install openEdx to create your online classes"><title>Introduction to Tutor</title>
-<link rel=canonical href=https://iderr.github.io/p/introduction-to-tutor/>
-<link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Introduction to Tutor">
-<meta property="og:description" content="How to install openEdx to create your online classes">
-<meta property="og:url" content="https://iderr.github.io/p/introduction-to-tutor/">
-<meta property="og:site_name" content="IDerr">
-<meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="OpenEdx"><meta property="article:tag" content="Cert-Manager"><meta property="article:tag" content="OVH"><meta property="article:tag" content="Docker"><meta property="article:tag" content="Kubernetes"><meta property="article:published_time" content="2021-11-07T00:00:00+00:00"><meta property="article:modified_time" content="2021-11-07T00:00:00+00:00"><meta property="og:image" content="https://iderr.github.io/p/introduction-to-tutor/background.png">
-<meta name=twitter:title content="Introduction to Tutor">
-<meta name=twitter:description content="How to install openEdx to create your online classes"><meta name=twitter:card content="summary_large_image">
-<meta name=twitter:image content="https://iderr.github.io/p/introduction-to-tutor/background.png">
-<script data-id=matomo-tracking data-matomo-tracking-url=https://analytics.derraz.fr data-matomo-tracking-id=1 src=/js/matomo-tracking.min.46acc2e1e3847ae7ddaaf1adb19b2d5755a94ebfc905716dea057f60061bcfac.js integrity="sha256-RqzC4eOEeufdqvGtsZstV1WpTr/JBXFt6gV/YAYbz6w=" crossorigin=anonymous defer></script>
-</head>
-<body class="article-page has-toc">
-<script>(function(){const a='StackColorScheme';localStorage.getItem(a)||localStorage.setItem(a,"dark")})()</script><script>(function(){const b='StackColorScheme',a=localStorage.getItem(b),c=window.matchMedia('(prefers-color-scheme: dark)').matches===!0;a=='dark'||a==='auto'&&c?document.documentElement.dataset.scheme='dark':document.documentElement.dataset.scheme='light'})()</script>
-<div class="container main-container flex
-extended">
-<div id=article-toolbar>
-<a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg>
-<span>Back</span>
-</a>
-</div>
-<main class="main full-width">
-<article class="has-image main-article">
-<header class=article-header>
-<div class=article-image>
-<a href=/p/introduction-to-tutor/>
-<img src=/p/introduction-to-tutor/background_hu4902f2b049033e1a8195559260a8ee86_735658_800x0_resize_box_3.png srcset="/p/introduction-to-tutor/background_hu4902f2b049033e1a8195559260a8ee86_735658_800x0_resize_box_3.png 800w, /p/introduction-to-tutor/background_hu4902f2b049033e1a8195559260a8ee86_735658_1600x0_resize_box_3.png 1600w" width=800 height=450 loading=lazy alt="Featured image of post Introduction to Tutor">
-</a>
-</div>
-<div class=article-details>
-<header class=article-category>
-<a href=/categories/openedx/>
-OpenEdx
-</a>
-<a href=/categories/tutor/>
-Tutor
-</a>
-</header>
-<h2 class=article-title>
-<a href=/p/introduction-to-tutor/>Introduction to Tutor</a>
-</h2>
-<h3 class=article-subtitle>
-How to install openEdx to create your online classes
-</h3>
-<footer class=article-time>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg>
-<time class=article-time--published>Nov 07, 2021</time>
-</div>
-<div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg>
-<time class=article-time--reading>
-2 minute read
-</time>
-</div>
-</footer>
-</div>
-</header>
-<section class=article-content>
-<h1 id=introduction>Introduction</h1>
-<p>Today, we will discuss how to use Tutor for deploying OpenEdx.
-OpenEdx is a platform used to deploy your courses online, it&rsquo;s an Udemy like but self hosted.</p>
-<p>Tutor is an amazing tool to get it deployed with Docker (or Kubernetes).</p>
-<h1 id=installation>Installation</h1>
-<h2 id=tutor-installation>Tutor installation</h2>
-<p>Installation is really straightforward, a simple binary to download and you&rsquo;re done !</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>sudo curl -L <span class=s2>&#34;https://github.com/overhangio/tutor/releases/download/v12.1.6/tutor-</span><span class=k>$(</span>uname -s<span class=k>)</span><span class=s2>_</span><span class=k>$(</span>uname -m<span class=k>)</span><span class=s2>&#34;</span> -o /usr/local/bin/tutor
-sudo chmod <span class=m>0755</span> /usr/local/bin/tutor
-</code></pre></div><p>Shamefully copied/pasted from the <a class=link href=https://docs.tutor.overhang.io/install.html target=_blank rel=noopener>documentation</a></p>
-<p>Really simple, no ?</p>
-<h2 id=run-your-environnement>Run your environnement</h2>
-<p>Now that we have Tutor installed in our environnement, we can launch our platform with the following command</p>
-<pre tabindex=0><code>tutor local quickstart
-</code></pre><p>You&rsquo;ll be asked some questions to change some variables :</p>
-<ul>
-<li>Is it a production platform ?</li>
-<li>Our instance name</li>
-<li>Our contact email</li>
-</ul>
-<p>For this tutorial, I&rsquo;ll run a non production openedx.</p>
-<div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash>iderr@iderr-VirtualBox:~$ tutor <span class=nb>local</span> <span class=nv>quickstart</span>
-
-<span class=o>==================================================</span>
-
-        Interactive platform <span class=nv>configuration</span>
-
-<span class=o>==================================================</span>
-
-Are you configuring a production platform? Type <span class=s1>&#39;n&#39;</span> <span class=k>if</span> you are just testing Tutor on your <span class=nb>local</span> computer <span class=o>[</span>Y/n<span class=o>]</span> n
-
-As you are not running this platform in production, we automatically <span class=nb>set</span> the following configuration values:
-
-    <span class=nv>LMS_HOST</span> <span class=o>=</span> local.overhang.io
-
-    <span class=nv>CMS_HOST</span> <span class=o>=</span> studio.local.overhang.io
-
-    <span class=nv>ENABLE_HTTPS</span> <span class=o>=</span> False
-
-Your platform name/title <span class=o>[</span>My Open edX<span class=o>]</span> platform1       
-
-Your public contact email address <span class=o>[</span>contact@local.overhang.io<span class=o>]</span> 
-
-The default language code <span class=k>for</span> the platform <span class=o>[</span>en<span class=o>]</span> 
-
-Configuration saved to /home/iderr/.local/share/tutor/config.yml
-
-Environment generated in /home/iderr/.local/share/tutor/env
-</code></pre></div><p>We let tutor do its job, and your environnement will be ready after seeing a text message like this</p>
-<pre tabindex=0><code>All services initialised.
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="How to install openEdx to create your online classes"><title>Introduction to Tutor</title><link rel=canonical href=https://iderr.github.io/p/introduction-to-tutor/><link rel=stylesheet href=/scss/style.min.css><meta property="og:title" content="Introduction to Tutor"><meta property="og:description" content="How to install openEdx to create your online classes"><meta property="og:url" content="https://iderr.github.io/p/introduction-to-tutor/"><meta property="og:site_name" content="IDerr"><meta property="og:type" content="article"><meta property="article:section" content="Post"><meta property="article:tag" content="OpenEdx"><meta property="article:tag" content="Cert-Manager"><meta property="article:tag" content="OVH"><meta property="article:tag" content="Docker"><meta property="article:tag" content="Kubernetes"><meta property="article:published_time" content="2021-11-07T00:00:00+00:00"><meta property="article:modified_time" content="2021-11-07T00:00:00+00:00"><meta property="og:image" content="https://iderr.github.io/p/introduction-to-tutor/background.png"><meta name=twitter:title content="Introduction to Tutor"><meta name=twitter:description content="How to install openEdx to create your online classes"><meta name=twitter:card content="summary_large_image"><meta name=twitter:image content="https://iderr.github.io/p/introduction-to-tutor/background.png"><script data-id=matomo-tracking data-matomo-tracking-url=https://analytics.derraz.fr data-matomo-tracking-id=1 src=/js/matomo-tracking.min.d8e1498fb42aa6048c4db4ac8451d0141fe4a0a83a1b4857df2a67a0cabd350a.js integrity="sha256-2OFJj7QqpgSMTbSshFHQFB/koKg6G0hX3ypnoMq9NQo=" crossorigin=anonymous defer></script></head><body class="article-page has-toc"><script>(function(){const e="StackColorScheme";localStorage.getItem(e)||localStorage.setItem(e,"dark")})()</script><script>(function(){const t="StackColorScheme",e=localStorage.getItem(t),n=window.matchMedia("(prefers-color-scheme: dark)").matches===!0;e=="dark"||e==="auto"&&n?document.documentElement.dataset.scheme="dark":document.documentElement.dataset.scheme="light"})()</script><div class="container main-container flex
+extended"><div id=article-toolbar><a href=/ class=back-home><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-chevron-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><polyline points="15 6 9 12 15 18"/></svg><span>Back</span></a></div><main class="main full-width"><article class="has-image main-article"><header class=article-header><div class=article-image><a href=/p/introduction-to-tutor/><img src=/p/introduction-to-tutor/background_hu4902f2b049033e1a8195559260a8ee86_735658_800x0_resize_box_3.png srcset="/p/introduction-to-tutor/background_hu4902f2b049033e1a8195559260a8ee86_735658_800x0_resize_box_3.png 800w, /p/introduction-to-tutor/background_hu4902f2b049033e1a8195559260a8ee86_735658_1600x0_resize_box_3.png 1600w" width=800 height=450 loading=lazy alt="Featured image of post Introduction to Tutor"></a></div><div class=article-details><header class=article-category><a href=/categories/openedx/>OpenEdx</a>
+<a href=/categories/tutor/>Tutor</a></header><h2 class=article-title><a href=/p/introduction-to-tutor/>Introduction to Tutor</a></h2><h3 class=article-subtitle>How to install openEdx to create your online classes</h3><footer class=article-time><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><path d="M11.795 21H5a2 2 0 01-2-2V7a2 2 0 012-2h12a2 2 0 012 2v4"/><circle cx="18" cy="18" r="4"/><path d="M15 3v4"/><path d="M7 3v4"/><path d="M3 11h16"/><path d="M18 16.496V18l1 1"/></svg><time class=article-time--published>Nov 07, 2021</time></div><div><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><polyline points="12 7 12 12 15 15"/></svg><time class=article-time--reading>2 minute read</time></div></footer></div></header><section class=article-content><h1 id=introduction>Introduction</h1><p>Today, we will discuss how to use Tutor for deploying OpenEdx.
+OpenEdx is a platform used to deploy your courses online, it&rsquo;s an Udemy like but self hosted.</p><p>Tutor is an amazing tool to get it deployed with Docker (or Kubernetes).</p><h1 id=installation>Installation</h1><h2 id=tutor-installation>Tutor installation</h2><p>Installation is really straightforward, a simple binary to download and you&rsquo;re done !</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>sudo curl -L <span class=s2>&#34;https://github.com/overhangio/tutor/releases/download/v12.1.6/tutor-</span><span class=k>$(</span>uname -s<span class=k>)</span><span class=s2>_</span><span class=k>$(</span>uname -m<span class=k>)</span><span class=s2>&#34;</span> -o /usr/local/bin/tutor
+</span></span><span class=line><span class=cl>sudo chmod <span class=m>0755</span> /usr/local/bin/tutor
+</span></span></code></pre></div><p>Shamefully copied/pasted from the <a class=link href=https://docs.tutor.overhang.io/install.html target=_blank rel=noopener>documentation</a></p><p>Really simple, no ?</p><h2 id=run-your-environnement>Run your environnement</h2><p>Now that we have Tutor installed in our environnement, we can launch our platform with the following command</p><pre tabindex=0><code>tutor local quickstart
+</code></pre><p>You&rsquo;ll be asked some questions to change some variables :</p><ul><li>Is it a production platform ?</li><li>Our instance name</li><li>Our contact email</li></ul><p>For this tutorial, I&rsquo;ll run a non production openedx.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-bash data-lang=bash><span class=line><span class=cl>iderr@iderr-VirtualBox:~$ tutor <span class=nb>local</span> <span class=nv>quickstart</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>==================================================</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>        Interactive platform <span class=nv>configuration</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=o>==================================================</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Are you configuring a production platform? Type <span class=s1>&#39;n&#39;</span> <span class=k>if</span> you are just testing Tutor on your <span class=nb>local</span> computer <span class=o>[</span>Y/n<span class=o>]</span> n
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>As you are not running this platform in production, we automatically <span class=nb>set</span> the following configuration values:
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nv>LMS_HOST</span> <span class=o>=</span> local.overhang.io
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nv>CMS_HOST</span> <span class=o>=</span> studio.local.overhang.io
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>    <span class=nv>ENABLE_HTTPS</span> <span class=o>=</span> False
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Your platform name/title <span class=o>[</span>My Open edX<span class=o>]</span> platform1       
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Your public contact email address <span class=o>[</span>contact@local.overhang.io<span class=o>]</span> 
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>The default language code <span class=k>for</span> the platform <span class=o>[</span>en<span class=o>]</span> 
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Configuration saved to /home/iderr/.local/share/tutor/config.yml
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>Environment generated in /home/iderr/.local/share/tutor/env
+</span></span></code></pre></div><p>We let tutor do its job, and your environnement will be ready after seeing a text message like this</p><pre tabindex=0><code>All services initialised.
 
 The Open edX platform is now running in detached mode
 
@@ -114,114 +39,17 @@ Your Open edX platform is ready and can be accessed at the following urls:
     http://local.overhang.io
     http://studio.local.overhang.io
 </code></pre><p>For our test, I&rsquo;ll stick with defaults urls, of course, you can use yours.
-I&rsquo;ll modify my /etc/hosts file to redirect urls in my localhost environnement</p>
-<pre tabindex=0><code>127.0.0.1	localhost local.overhang.io studio.local.overhang.io
-</code></pre><p>TADA
-<figure class=gallery-image style=flex-grow:349;flex-basis:838px>
-<a href=/p/introduction-to-tutor/success.jpg data-size=2474x708>
-<img src=/p/introduction-to-tutor/success.jpg width=2474 height=708 srcset="/p/introduction-to-tutor/success_hub3cb6694bc50bce44bf9d046a2c7491f_113135_480x0_resize_q75_box.jpg 480w, /p/introduction-to-tutor/success_hub3cb6694bc50bce44bf9d046a2c7491f_113135_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt=Success>
-</a>
-<figcaption>Success</figcaption>
-</figure></p>
-<h2 id=conclusion>Conclusion</h2>
-<p>Congratulations, now, we have a running OpenEdx installation !
-See you next time for the configuration of OpenEdx and its customisation !</p>
-</section>
-<footer class=article-footer>
-<section class=article-tags>
-<a href=/tags/openedx/>OpenEdx</a>
+I&rsquo;ll modify my /etc/hosts file to redirect urls in my localhost environnement</p><pre tabindex=0><code>127.0.0.1	localhost local.overhang.io studio.local.overhang.io
+</code></pre><p>TADA<figure class=gallery-image style=flex-grow:349;flex-basis:838px><a href=/p/introduction-to-tutor/success.jpg data-size=2474x708><img src=/p/introduction-to-tutor/success.jpg width=2474 height=708 srcset="/p/introduction-to-tutor/success_hub3cb6694bc50bce44bf9d046a2c7491f_113135_480x0_resize_q75_box.jpg 480w, /p/introduction-to-tutor/success_hub3cb6694bc50bce44bf9d046a2c7491f_113135_1024x0_resize_q75_box.jpg 1024w" loading=lazy alt=Success></a><figcaption>Success</figcaption></figure></p><h2 id=conclusion>Conclusion</h2><p>Congratulations, now, we have a running OpenEdx installation !
+See you next time for the configuration of OpenEdx and its customisation !</p></section><footer class=article-footer><section class=article-tags><a href=/tags/openedx/>OpenEdx</a>
 <a href=/tags/cert-manager/>Cert-Manager</a>
 <a href=/tags/ovh/>OVH</a>
 <a href=/tags/docker/>Docker</a>
-<a href=/tags/kubernetes/>Kubernetes</a>
-</section>
-<section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg>
-<span>Licensed under CC BY-NC-SA 4.0</span>
-</section>
-</footer>
-</article>
-<aside class=related-contents--wrapper>
-<h2 class=section-title>Related contents</h2>
-<div class=related-contents>
-<div class="flex article-list--tile">
-<article class=has-image>
-<a href=/p/ovh-provider-for-cert-manager-dns-01/>
-<div class=article-image>
-<img src=https://cdna.artstation.com/p/assets/images/images/009/211/358/large/bala-vidhya-sagar-1.jpg?1517728575 loading=lazy data-key data-hash=https://cdna.artstation.com/p/assets/images/images/009/211/358/large/bala-vidhya-sagar-1.jpg?1517728575>
-</div>
-<div class=article-details>
-<h2 class=article-title>OVH provider for cert-manager DNS-01</h2>
-</div>
-</a>
-</article>
-</div>
-</div>
-</aside>
-<footer class=site-footer>
-<section class=copyright>
-&copy;
-2021 IDerr
-</section>
-<section class=powerby>
-Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a> <br>
-Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a>
-</section>
-</footer>
-<div class=pswp tabindex=-1 role=dialog aria-hidden=true>
-<div class=pswp__bg></div>
-<div class=pswp__scroll-wrap>
-<div class=pswp__container>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-<div class=pswp__item></div>
-</div>
-<div class="pswp__ui pswp__ui--hidden">
-<div class=pswp__top-bar>
-<div class=pswp__counter></div>
-<button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+<a href=/tags/kubernetes/>Kubernetes</a></section><section class=article-copyright><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><circle cx="12" cy="12" r="9"/><path d="M14.5 9a3.5 4 0 100 6"/></svg><span>Licensed under CC BY-NC-SA 4.0</span></section></footer></article><aside class=related-contents--wrapper><h2 class=section-title>Related contents</h2><div class=related-contents><div class="flex article-list--tile"><article class=has-image><a href=/p/ovh-provider-for-cert-manager-dns-01/><div class=article-image><img src=https://cdna.artstation.com/p/assets/images/images/009/211/358/large/bala-vidhya-sagar-1.jpg?1517728575 loading=lazy data-key data-hash=https://cdna.artstation.com/p/assets/images/images/009/211/358/large/bala-vidhya-sagar-1.jpg?1517728575></div><div class=article-details><h2 class=article-title>OVH provider for cert-manager DNS-01</h2></div></a></article></div></div></aside><footer class=site-footer><section class=copyright>&copy;
+2021 -
+2022 IDerr</section><section class=powerby>Built with <a href=https://gohugo.io/ target=_blank rel=noopener>Hugo</a><br>Theme <b><a href=https://github.com/CaiJimmy/hugo-theme-stack target=_blank rel=noopener data-version=3.5.0>Stack</a></b> designed by <a href=https://jimmycai.com target=_blank rel=noopener>Jimmy</a></section></footer><div class=pswp tabindex=-1 role=dialog aria-hidden=true><div class=pswp__bg></div><div class=pswp__scroll-wrap><div class=pswp__container><div class=pswp__item></div><div class=pswp__item></div><div class=pswp__item></div></div><div class="pswp__ui pswp__ui--hidden"><div class=pswp__top-bar><div class=pswp__counter></div><button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
 <button class="pswp__button pswp__button--share" title=Share></button>
 <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
-<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
-<div class=pswp__preloader>
-<div class=pswp__preloader__icn>
-<div class=pswp__preloader__cut>
-<div class=pswp__preloader__donut></div>
-</div>
-</div>
-</div>
-</div>
-<div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
-<div class=pswp__share-tooltip></div>
-</div>
-<button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
-</button>
-<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
-</button>
-<div class=pswp__caption>
-<div class=pswp__caption__center></div>
-</div>
-</div>
-</div>
-</div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous>
-</main>
-<aside class="sidebar right-sidebar sticky">
-<section class="widget archives">
-<div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg>
-</div>
-<h2 class="widget-title section-title">Table of contents</h2>
-<div class=widget--toc>
-<nav id=TableOfContents>
-<ol>
-<li><a href=#tutor-installation>Tutor installation</a></li>
-<li><a href=#run-your-environnement>Run your environnement</a></li>
-<li><a href=#conclusion>Conclusion</a></li>
-</ol>
-</nav>
-</div>
-</section>
-</aside>
-</div>
-<script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
-<script>(function(){const a=document.createElement('link');a.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",a.type="text/css",a.rel="stylesheet",document.head.appendChild(a)})()</script>
-</body>
-</html>
+<button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button><div class=pswp__preloader><div class=pswp__preloader__icn><div class=pswp__preloader__cut><div class=pswp__preloader__donut></div></div></div></div></div><div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap"><div class=pswp__share-tooltip></div></div><button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+<button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button><div class=pswp__caption><div class=pswp__caption__center></div></div></div></div></div><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo=" crossorigin=anonymous defer></script><script src=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU=" crossorigin=anonymous defer></script><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.css integrity="sha256-c0uckgykQ9v5k+IqViZOZKc47Jn7KQil4/MP3ySA3F8=" crossorigin=anonymous><link rel=stylesheet href=https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.css integrity="sha256-SBLU4vv6CA6lHsZ1XyTdhyjJxCjPif/TRkjnsyGAGnE=" crossorigin=anonymous></main><aside class="sidebar right-sidebar sticky"><section class="widget archives"><div class=widget-icon><svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentcolor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z"/><line x1="5" y1="9" x2="19" y2="9"/><line x1="5" y1="15" x2="19" y2="15"/><line x1="11" y1="4" x2="7" y2="20"/><line x1="17" y1="4" x2="13" y2="20"/></svg></div><h2 class="widget-title section-title">Table of contents</h2><div class=widget--toc><nav id=TableOfContents><ol><li><a href=#tutor-installation>Tutor installation</a></li><li><a href=#run-your-environnement>Run your environnement</a></li><li><a href=#conclusion>Conclusion</a></li></ol></nav></div></section></aside></div><script src=https://cdn.jsdelivr.net/npm/node-vibrant@3.1.5/dist/vibrant.min.js integrity="sha256-5NovOZc4iwiAWTYIFiIM7DxKUXKWvpVEuMEPLzcm5/g=" crossorigin=anonymous defer></script><script type=text/javascript src=/ts/main.js defer></script>
+<script>(function(){const e=document.createElement("link");e.href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap",e.type="text/css",e.rel="stylesheet",document.head.appendChild(e)})()</script></body></html>
