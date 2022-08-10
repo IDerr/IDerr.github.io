@@ -46,7 +46,36 @@ Using one of the following operating system (Full compatibility here : &lt;a cla
 &lt;li>Kubermatic API&lt;/li>
 &lt;li>Machine Controller responsible to deploy and manage worker nodes&lt;/li>
 &lt;/ul>
-&lt;h3 id="seed-cluster">Seed Cluster&lt;/h3></description></item><item><title>Week 2 - Using Hasura to analyze OpenFoodFacts</title><link>https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/</link><pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate><guid>https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/</guid><description>&lt;img src="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/background.png" alt="Featured image of post Week 2 - Using Hasura to analyze OpenFoodFacts" />&lt;h2 id="introduction">Introduction&lt;/h2>
+&lt;h3 id="seed-cluster">Seed Cluster&lt;/h3>
+&lt;p>Seed cluster is reponsible for running all control planes software for user clusters
+Each user cluster will use a different namespace in the seed cluster to separate resources from each cluster.&lt;/p>
+&lt;h3 id="user-cluster">User Cluster&lt;/h3>
+&lt;p>The user cluster is the cluster created for a tenant.&lt;/p>
+&lt;h2 id="architecture-1">Architecture&lt;/h2>
+&lt;h3 id="simple-architecture">Simple architecture&lt;/h3>
+&lt;p>You&amp;rsquo;ll need one kubernetes cluster for this simple architecture, master and seed cluster will be grouped in one cluster.
+The user cluster will be instanciated in your provider.&lt;/p>
+&lt;p>&lt;figure
+>
+&lt;a href="https://d33wubrfki0l68.cloudfront.net/24dced1937561af303108d13284e6766df6be253/cd0c4/img/kubermatic/v2.20/architecture/combined-master-seed.png" >
+&lt;img src="https://d33wubrfki0l68.cloudfront.net/24dced1937561af303108d13284e6766df6be253/cd0c4/img/kubermatic/v2.20/architecture/combined-master-seed.png"
+loading="lazy"
+alt="simple">
+&lt;/a>
+&lt;figcaption>simple&lt;/figcaption>
+&lt;/figure>&lt;/p>
+&lt;h3 id="large-scale-architecture">Large scale architecture&lt;/h3>
+&lt;p>You&amp;rsquo;ll need at least two kubernetes clusters for this.
+Master will be hosted in a cluster and the seed cluster in another. You can separate your clusters in multiple seeds depending on the granularity needed (Country/Datacenter or other)&lt;/p>
+&lt;p>The user cluster will still be instanciated in your provider.&lt;/p>
+&lt;p>&lt;figure
+>
+&lt;a href="https://d33wubrfki0l68.cloudfront.net/3c0b0b49415d5ece57c75e678ca15ac8edd8cea8/e39bb/img/kubermatic/v2.20/architecture/dedicated-seeds.png" >
+&lt;img src="https://d33wubrfki0l68.cloudfront.net/3c0b0b49415d5ece57c75e678ca15ac8edd8cea8/e39bb/img/kubermatic/v2.20/architecture/dedicated-seeds.png"
+loading="lazy"
+>
+&lt;/a>
+&lt;/figure>&lt;/p></description></item><item><title>Week 2 - Using Hasura to analyze OpenFoodFacts</title><link>https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/</link><pubDate>Fri, 19 Nov 2021 00:00:00 +0000</pubDate><guid>https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/</guid><description>&lt;img src="https://iderr.github.io/p/week-2-using-hasura-to-analyze-openfoodfacts/background.png" alt="Featured image of post Week 2 - Using Hasura to analyze OpenFoodFacts" />&lt;h2 id="introduction">Introduction&lt;/h2>
 &lt;p>In the last article, we have imported OpenFoodFacts data from a CSV format to PostgreSQL.&lt;/p>
 &lt;p>Now, our data is ready to be analysed by anyone.
 SQL can be great for analysis but if we want to build an application, we&amp;rsquo;ll need another transport layer like REST or GraphQL.
