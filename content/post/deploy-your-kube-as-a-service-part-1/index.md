@@ -1,6 +1,6 @@
 ---
 author: IDerr
-title: Deploy your kubernetes as a service using Kubermatic ! 
+title: Deploy your kubernetes as a service using Kubermatic ! Part 1  
 date: 2022-08-03
 description: How to Deploy your kubernetes as a service using Kubermatic !
 image: "background.jpg"
