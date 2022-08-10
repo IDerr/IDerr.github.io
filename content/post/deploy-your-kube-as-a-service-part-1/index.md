@@ -59,8 +59,28 @@ Master cluster is reponsible for running all kubermatic related software :
 
 ### Seed Cluster
 
+Seed cluster is reponsible for running all control planes software for user clusters
+Each user cluster will use a different namespace in the seed cluster to separate resources from each cluster.
 
+### User Cluster
+
+The user cluster is the cluster created for a tenant.
+
+## Architecture
+
+### Simple architecture
+
+You'll need one kubernetes cluster for this simple architecture, master and seed cluster will be grouped in one cluster.
+The user cluster will be instanciated in your provider.
+
+![simple](https://d33wubrfki0l68.cloudfront.net/24dced1937561af303108d13284e6766df6be253/cd0c4/img/kubermatic/v2.20/architecture/combined-master-seed.png)
   
+### Large scale architecture
+
+You'll need at least two kubernetes clusters for this.
+Master will be hosted in a cluster and the seed cluster in another. You can separate your clusters in multiple seeds depending on the granularity needed (Country/Datacenter or other)
+
+The user cluster will still be instanciated in your provider.
 
 
-
+![](https://d33wubrfki0l68.cloudfront.net/3c0b0b49415d5ece57c75e678ca15ac8edd8cea8/e39bb/img/kubermatic/v2.20/architecture/dedicated-seeds.png)
