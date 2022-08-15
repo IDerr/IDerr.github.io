@@ -19,3 +19,5 @@ In the last article, we saw the global architecture of Kubermatic, we will now d
 ## Prerequisites
 
 - A storage class named kubermatic-fast
+- A kubernetes cluster for managing kubermatic and seed clusters
+

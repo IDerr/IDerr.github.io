@@ -84,3 +84,9 @@ The user cluster will still be instanciated in your provider.
 
 
 ![](https://d33wubrfki0l68.cloudfront.net/3c0b0b49415d5ece57c75e678ca15ac8edd8cea8/e39bb/img/kubermatic/v2.20/architecture/dedicated-seeds.png)
+
+## Conclusion
+
+Now that you know the architecture of Kubermatic, we'll install it on a kubernetes cluster linked to an openstack cluster ! 
+
+See you on the next article ! 
