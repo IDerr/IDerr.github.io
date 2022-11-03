@@ -1,6 +1,0 @@
-Add a client in keycloak with this redirect url
-https://<AWX_HOST>/sso/complete/oidc/
-
-
-add in awx/tower a generic oidc connection with client id / secret with this url
-https://<KEYCLOAK_HOST>/realms/master
