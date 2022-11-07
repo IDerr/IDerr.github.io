@@ -21,8 +21,8 @@ Want to connect your AWX/Ansible Tower with your SSO solution (thanks to openid 
 I have seen a lot of tutorials on how to configure with SAML, but not one with OIDC so here it is :)
 ## Prerequisites
 
-    - A keycloak
-    - An ansible tower / awx
+- A keycloak
+- An ansible tower / awx
 
 If you respect all these prerequisites, you are good to go !
 
