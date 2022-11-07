@@ -28,8 +28,10 @@ If you respect all these prerequisites, you are good to go !
 
 ## Tutorial 
 Go to your beautiful keycloak instance 
-Add a client in keycloak with this redirect url 
+Add a client in keycloak with this redirect url
+```
 https://<AWX_HOST>/sso/complete/oidc/
+```
 Something like this :
 
 ![config](config.jpg)
