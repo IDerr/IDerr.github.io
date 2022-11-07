@@ -5,7 +5,7 @@ extended"><div id=article-toolbar><a href=/ class=back-home><svg xmlns="http://w
 I have seen a lot of tutorials on how to configure with SAML, but not one with OIDC so here it is :)</p><h2 id=prerequisites>Prerequisites</h2><ul><li>A keycloak</li><li>An ansible tower / awx</li></ul><p>If you respect all these prerequisites, you are good to go !</p><h2 id=tutorial>Tutorial</h2><p>Go to your beautiful keycloak instance
 Add a client in keycloak with this redirect url
 https://&lt;AWX_HOST>/sso/complete/oidc/
-Something like this :<figure><a href=/keycloak-config.jpg><img src=/keycloak-config.jpg loading=lazy alt=config></a><figcaption>config</figcaption></figure>Get your keys in your credentials part (if not set, set it to Client ID and secret)</p><p>In your awx/tower instance, go to settings, generic oidc and fill all the infos :
+Something like this :</p><p><figure><a href=/config.jpg><img src=/config.jpg loading=lazy alt=config></a><figcaption>config</figcaption></figure></p><p>Get your keys in your credentials part (if not set, set it to Client ID and secret)</p><p>In your awx/tower instance, go to settings, generic oidc and fill all the infos :
 OIDC key : Keycloak&rsquo;s client id
 OIDC secret : Keycloak&rsquo;s client secret
 OIDC provider : https://&lt;KEYCLOAK_HOST>/realms/&lt;YOUR_REALM></p><h2 id=conclusion>Conclusion</h2><p>Only that, yes.<figure><a href=/awx-login.png><img src=/awx-login.png loading=lazy alt=login></a><figcaption>login</figcaption></figure>Your awx/ansible tower is now connected, login and do as you please!</p><p>See you on the next article !</p></section><footer class=article-footer><section class=article-tags><a href=/tags/keycloak/>Keycloak</a>

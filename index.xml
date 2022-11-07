@@ -11,17 +11,17 @@ I have seen a lot of tutorials on how to configure with SAML, but not one with O
 &lt;p>Go to your beautiful keycloak instance
 Add a client in keycloak with this redirect url
 https://&amp;lt;AWX_HOST&amp;gt;/sso/complete/oidc/
-Something like this :
-&lt;figure
+Something like this :&lt;/p>
+&lt;p>&lt;figure
 >
-&lt;a href="https://iderr.github.io/keycloak-config.jpg" >
-&lt;img src="https://iderr.github.io/keycloak-config.jpg"
+&lt;a href="https://iderr.github.io/config.jpg" >
+&lt;img src="https://iderr.github.io/config.jpg"
 loading="lazy"
 alt="config">
 &lt;/a>
 &lt;figcaption>config&lt;/figcaption>
-&lt;/figure>
-Get your keys in your credentials part (if not set, set it to Client ID and secret)&lt;/p>
+&lt;/figure>&lt;/p>
+&lt;p>Get your keys in your credentials part (if not set, set it to Client ID and secret)&lt;/p>
 &lt;p>In your awx/tower instance, go to settings, generic oidc and fill all the infos :
 OIDC key : Keycloak&amp;rsquo;s client id
 OIDC secret : Keycloak&amp;rsquo;s client secret
