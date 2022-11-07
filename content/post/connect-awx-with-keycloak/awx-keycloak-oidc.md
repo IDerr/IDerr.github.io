@@ -31,7 +31,9 @@ Go to your beautiful keycloak instance
 Add a client in keycloak with this redirect url 
 https://<AWX_HOST>/sso/complete/oidc/
 Something like this :
-![config](keycloak-config.jpg)
+
+![config](config.jpg)
+
 Get your keys in your credentials part (if not set, set it to Client ID and secret)
 
 
