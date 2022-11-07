@@ -9,9 +9,9 @@ I have seen a lot of tutorials on how to configure with SAML, but not one with O
 &lt;p>If you respect all these prerequisites, you are good to go !&lt;/p>
 &lt;h2 id="tutorial">Tutorial&lt;/h2>
 &lt;p>Go to your beautiful keycloak instance
-Add a client in keycloak with this redirect url
-https://&amp;lt;AWX_HOST&amp;gt;/sso/complete/oidc/
-Something like this :&lt;/p>
+Add a client in keycloak with this redirect url&lt;/p>
+&lt;pre tabindex="0">&lt;code>https://&amp;lt;AWX_HOST&amp;gt;/sso/complete/oidc/
+&lt;/code>&lt;/pre>&lt;p>Something like this :&lt;/p>
 &lt;p>&lt;figure
 class="gallery-image"
 style="
