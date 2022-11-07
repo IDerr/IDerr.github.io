@@ -1,9 +1,9 @@
 
 ---
 author: IDerr
-title: Connect your AWX/Ansible Tower with Keycloak !  
+title: Connect your AWX - Ansible Tower with Keycloak !  
 date: 2022-11-04
-description: Connect your AWX/Ansible Tower with Keycloak  !
+description: Connect your AWX - Ansible Tower with Keycloak  !
 image: "background.jpg"
 categories: 
     - "Keycloak"
