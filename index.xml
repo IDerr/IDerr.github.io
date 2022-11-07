@@ -2,9 +2,10 @@
 &lt;p>Want to connect your AWX/Ansible Tower with your SSO solution (thanks to openid connect), in my case keycloak, you&amp;rsquo;re in the right place.
 I have seen a lot of tutorials on how to configure with SAML, but not one with OIDC so here it is :)&lt;/p>
 &lt;h2 id="prerequisites">Prerequisites&lt;/h2>
-&lt;pre>&lt;code>- A keycloak
-- An ansible tower / awx
-&lt;/code>&lt;/pre>
+&lt;ul>
+&lt;li>A keycloak&lt;/li>
+&lt;li>An ansible tower / awx&lt;/li>
+&lt;/ul>
 &lt;p>If you respect all these prerequisites, you are good to go !&lt;/p>
 &lt;h2 id="tutorial">Tutorial&lt;/h2>
 &lt;p>Go to your beautiful keycloak instance
